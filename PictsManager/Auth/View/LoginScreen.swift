@@ -8,32 +8,61 @@
 import SwiftUI
 
 struct LoginScreen: View {
-    @ObservedObject var loginViewModel: LoginViewModel
+    @ObservedObject var viewModel: AuthViewModel
+    @State private var username = ""
+    @State private var password = ""
     
     var body: some View {
         VStack {
-            TextField("Username", text: $loginViewModel.username)
+            Text("PictsManager")
+                .font(.title)
+                .bold()
+            
+            TextField("Username", text: $username)
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
-            SecureField("Password", text: $loginViewModel.password)
+            SecureField("Password", text: $password)
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
-            Button(action: { loginViewModel.login() }) {
-                Text("Login")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+            HStack {
+                Button(action: {
+                    // TODO: Navigate to Register screen
+                }) {
+                    Text("Register")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+
+                Button(action: {
+                    let user = User(username: username, password: password)
+                    viewModel.login(user: user)
+                }) {
+                    Text("Login")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                
+                if !viewModel.errorMessage.isEmpty {
+                    Text(viewModel.errorMessage)
+                        .foregroundStyle(.red)
+                }
             }
         }
+        .padding()
     }
 }
 
 struct LoginScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let loginViewModel = LoginViewModel()
-        LoginScreen(loginViewModel: loginViewModel)
+        let viewModel = AuthViewModel()
+        LoginScreen(viewModel: viewModel)
     }
 }
