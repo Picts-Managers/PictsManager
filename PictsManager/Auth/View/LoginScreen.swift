@@ -19,23 +19,24 @@ struct LoginScreen: View {
                 .bold()
             
             TextField("Username", text: $username)
-                .padding()
+                .padding(.horizontal, 20)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
             SecureField("Password", text: $password)
-                .padding()
+                .padding(.horizontal, 20)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
             HStack {
                 Button(action: {
                     // TODO: Navigate to Register screen
                 }) {
-                    Text("Register")
-                        .padding()
-                        .frame(maxWidth: .infinity)
+                    Text("Not an user yet? Register")
+                        .font(.headline)
+                        .padding(.horizontal, 18)
+                        .padding(.vertical, 7)
                         .background(Color.green)
                         .foregroundColor(.white)
-                        .cornerRadius(10)
+                        .cornerRadius(8)
                 }
 
                 Button(action: {
@@ -43,11 +44,12 @@ struct LoginScreen: View {
                     viewModel.login(user: user)
                 }) {
                     Text("Login")
-                        .padding()
-                        .frame(maxWidth: .infinity)
+                        .font(.headline)
+                        .padding(.horizontal, 18)
+                        .padding(.vertical, 7)
                         .background(Color.blue)
                         .foregroundColor(.white)
-                        .cornerRadius(10)
+                        .cornerRadius(8)
                 }
                 
                 if !viewModel.errorMessage.isEmpty {

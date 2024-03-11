@@ -37,6 +37,12 @@ class AuthViewModel: ObservableObject {
             
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 self.isAuthenticated = true
+                
+                if let responseBody = String(data: data, encoding: .utf8) {
+                    print("Response body: ", responseBody)
+                } else {
+                    print("Response body decoding failed")
+                }
             } else {
                 if let errorMessage = String(data: data, encoding: .utf8) {
                     self.errorMessage = errorMessage
