@@ -11,6 +11,7 @@ import SwiftUI
 struct RegisterScreen: View {
     @ObservedObject var viewModel: AuthViewModel
     @State private var username = ""
+    @State private var email = ""
     @State private var password = ""
     
     var body: some View {
@@ -18,6 +19,10 @@ struct RegisterScreen: View {
             Text("Register")
                 .font(.title)
                 .bold()
+            
+            TextField("Email", text: $email)
+                .padding()
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             
             TextField("Username", text: $username)
                 .padding()
@@ -28,8 +33,7 @@ struct RegisterScreen: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
             Button(action: {
-                let user = User(username: username, email: password)
-                viewModel.register(user: user)
+                viewModel.register(email: email, username: username, password: password)
             }) {
                 Text("Register")
                     .padding()

@@ -7,13 +7,16 @@
 
 import Foundation
 
-struct API {
+struct Api {
     static let baseURL = "http://127.0.0.1:3000/"
 
     static func endpoint(path: String) -> String {
         return baseURL + path
     }
     
-    static let login = endpoint(path: "auth/login")
-    static let register = endpoint(path: "register")
+    struct Auth {
+        static let login = endpoint(path: "auth/login")
+        static let register = endpoint(path: "auth/register")
+    }
+    
 }
