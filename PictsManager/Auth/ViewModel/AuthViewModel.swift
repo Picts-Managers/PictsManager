@@ -12,7 +12,7 @@ class AuthViewModel: ObservableObject {
     @Published var isAuthenticated = false
     @Published var errorMessage = ""
     
-    func login(user: User) {
+    func login(login: String, password: String) {
         guard let url = URL(string: API.login) else {
             self.errorMessage = "Invalid URL for login endpoint"
             return
@@ -22,7 +22,14 @@ class AuthViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        guard let jsonData = try? JSONEncoder().encode(user) else {
+        let loginForm: [String: Any] =
+            [
+                "login": login,
+                "password": password
+            ]
+ 
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: loginForm) else {
             self.errorMessage = "Failed to encode user data"
             return
         }
@@ -79,7 +86,7 @@ class AuthViewModel: ObservableObject {
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 self.isAuthenticated = true
                 
-                if let responseBody = String(data: data, encoding: .utf8) {
+                if String(data: data, encoding: .utf8) != nil {
                     if let responseBody = String(data: data, encoding: .utf8) {
                         print("Registration successful. Response body:", responseBody)
                     } else {

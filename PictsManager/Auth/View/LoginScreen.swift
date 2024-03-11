@@ -40,8 +40,7 @@ struct LoginScreen: View {
                 }
 
                 Button(action: {
-                    let user = User(username: username, password: password)
-                    viewModel.login(user: user)
+                    viewModel.login(login: username, password: password)
                 }) {
                     Text("Login")
                         .font(.headline)

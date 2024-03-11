@@ -28,7 +28,7 @@ struct RegisterScreen: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
             Button(action: {
-                let user = User(username: username, password: password)
+                let user = User(username: username, email: password)
                 viewModel.register(user: user)
             }) {
                 Text("Register")
