@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct RegisterScreen: View {
-    @ObservedObject var viewModel: AuthViewModel
+    @StateObject var viewModel = AuthViewModel()
     @State private var username = ""
     @State private var email = ""
     @State private var password = ""

@@ -8,52 +8,52 @@
 import SwiftUI
 
 struct LoginScreen: View {
-    @ObservedObject var viewModel: AuthViewModel
+    @StateObject var viewModel = AuthViewModel()
     @State private var username = ""
     @State private var password = ""
     
     var body: some View {
-        VStack {
-            Text("PictsManager")
-                .font(.title)
-                .bold()
-            
-            TextField("Username", text: $username)
-                .padding(.horizontal, 20)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            SecureField("Password", text: $password)
-                .padding(.horizontal, 20)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            HStack {
-                Button(action: {
-                    // TODO: Navigate to Register screen
-                }) {
-                    Text("Not an user yet? Register")
-                        .font(.headline)
-                        .padding(.horizontal, 18)
-                        .padding(.vertical, 7)
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-
-                Button(action: {
-                    viewModel.login(login: username, password: password)
-                }) {
-                    Text("Login")
-                        .font(.headline)
-                        .padding(.horizontal, 18)
-                        .padding(.vertical, 7)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
+        NavigationView {
+            VStack {
+                Text("PictsManager")
+                    .font(.title)
+                    .bold()
                 
-                if !viewModel.errorMessage.isEmpty {
-                    Text(viewModel.errorMessage)
-                        .foregroundStyle(.red)
+                TextField("Username", text: $username)
+                    .padding(.horizontal, 20)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                SecureField("Password", text: $password)
+                    .padding(.horizontal, 20)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                HStack {
+                    Button(action: {
+                        viewModel.login(login: username, password: password)
+                    }) {
+                        Text("Login")
+                            .font(.headline)
+                            .padding(.horizontal, 18)
+                            .padding(.vertical, 7)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                    }
+                    
+                    if !viewModel.errorMessage.isEmpty {
+                        Text(viewModel.errorMessage)
+                            .foregroundStyle(.red)
+                    }
+                    NavigationLink {
+                        RegisterScreen()
+                    } label: {
+                        Text("Not an user yet? Register")
+                            .font(.headline)
+                            .padding(.horizontal, 18)
+                            .padding(.vertical, 7)
+                            .foregroundColor(.blue)
+                            .cornerRadius(8)
+                    }
                 }
             }
         }
