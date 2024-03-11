@@ -53,7 +53,47 @@ class AuthViewModel: ObservableObject {
         }.resume()
     }
     
-    func register() {
-        // TODO: implement registration logic
+    func register(user: User) {
+        guard let url = URL(string: API.register) else {
+            self.errorMessage = "Invalid URL for register endpoint"
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        guard let jsonData = try? JSONEncoder().encode(user) else {
+            self.errorMessage = "Failed to encode user data"
+            return
+        }
+        
+        request.httpBody = jsonData
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                self.errorMessage = "Error"
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                self.isAuthenticated = true
+                
+                if let responseBody = String(data: data, encoding: .utf8) {
+                    if let responseBody = String(data: data, encoding: .utf8) {
+                        print("Registration successful. Response body:", responseBody)
+                    } else {
+                        print("Response body decoding failed")
+                    }
+                } else {
+                    if let errorMessage = String(data: data, encoding: .utf8) {
+                        self.errorMessage = errorMessage
+                    } else {
+                        self.errorMessage = "Error"
+                    }
+                }
+            }
+        }.resume()
     }
+    
 }
