@@ -14,7 +14,7 @@ struct LoginScreen: View {
     @State private var isLoggedIn = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Text("PictsManager")
                     .font(.title)
@@ -41,11 +41,13 @@ struct LoginScreen: View {
                             .foregroundColor(.white)
                             .cornerRadius(8)
                     }
+                    .navigationDestination(isPresented: $isLoggedIn) { HomeScreen().navigationBarBackButtonHidden(true) }
                     
                     if !viewModel.errorMessage.isEmpty {
                         Text(viewModel.errorMessage)
                             .foregroundStyle(.red)
                     }
+                    
                     NavigationLink {
                         RegisterScreen()
                             .navigationBarBackButtonHidden(true)
