@@ -13,9 +13,10 @@ struct RegisterScreen: View {
     @State private var username = ""
     @State private var email = ""
     @State private var password = ""
+    @State private var isAccountCreated = false
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             VStack {
                 Text("Register")
                     .font(.title)
@@ -35,6 +36,7 @@ struct RegisterScreen: View {
                 
                 Button(action: {
                     viewModel.register(email: email, username: username, password: password)
+                    isAccountCreated = UserSessionManager.shared.isAuthenticated
                 }) {
                     Text("Register")
                         .padding()
@@ -43,6 +45,7 @@ struct RegisterScreen: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
+                .navigationDestination(isPresented: $isAccountCreated) { HomeScreen().navigationBarBackButtonHidden(true) }
                 
                 NavigationLink {
                     LoginScreen()
