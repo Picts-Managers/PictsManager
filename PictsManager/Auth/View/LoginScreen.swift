@@ -11,6 +11,7 @@ struct LoginScreen: View {
     @StateObject var viewModel = AuthViewModel()
     @State private var username = ""
     @State private var password = ""
+    @State private var isLoggedIn = false
     
     var body: some View {
         NavigationView {
@@ -30,6 +31,7 @@ struct LoginScreen: View {
                 HStack {
                     Button(action: {
                         viewModel.login(login: username, password: password)
+                        isLoggedIn = UserSessionManager.shared.isAuthenticated
                     }) {
                         Text("Login")
                             .font(.headline)
@@ -64,7 +66,6 @@ struct LoginScreen: View {
 
 struct LoginScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = AuthViewModel()
-        LoginScreen(viewModel: viewModel)
+        LoginScreen()
     }
 }

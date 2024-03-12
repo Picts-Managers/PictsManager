@@ -9,7 +9,6 @@ import Foundation
 
 class AuthViewModel: ObservableObject {
     
-    @Published var isAuthenticated = false
     @Published var errorMessage = ""
     
     func login(login: String, password: String) {
@@ -39,12 +38,11 @@ class AuthViewModel: ObservableObject {
             }
             
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                self.isAuthenticated = true
-                
-                if let responseBody = String(data: data, encoding: .utf8) {
-                    print("Response body: ", responseBody)
-                } else {
-                    print("Response body decoding failed")
+                if let responseData = try? JSONDecoder().decode(User.self, from: data) {
+                    UserSessionManager.shared.saveAuthToken(responseData.token)
+
+                    print("responseData: ", responseData)
+                    print("After UserSession", UserSessionManager.shared.isAuthenticated)
                 }
             } else {
                 if let errorMessage = String(data: data, encoding: .utf8) {
@@ -82,7 +80,6 @@ class AuthViewModel: ObservableObject {
             }
             
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                self.isAuthenticated = true
                 
                 if String(data: data, encoding: .utf8) != nil {
                     if let responseBody = String(data: data, encoding: .utf8) {
