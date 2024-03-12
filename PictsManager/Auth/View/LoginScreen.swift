@@ -46,6 +46,7 @@ struct LoginScreen: View {
                     }
                     NavigationLink {
                         RegisterScreen()
+                            .navigationBarBackButtonHidden(true)
                     } label: {
                         Text("Not an user yet? Register")
                             .font(.headline)

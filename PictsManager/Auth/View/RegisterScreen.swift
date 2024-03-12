@@ -15,41 +15,53 @@ struct RegisterScreen: View {
     @State private var password = ""
     
     var body: some View {
-        VStack {
-            Text("Register")
-                .font(.title)
-                .bold()
-            
-            TextField("Email", text: $email)
-                .padding()
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            TextField("Username", text: $username)
-                .padding()
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            SecureField("Password", text: $password)
-                .padding()
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Button(action: {
-                viewModel.register(email: email, username: username, password: password)
-            }) {
+        NavigationView{
+            VStack {
                 Text("Register")
+                    .font(.title)
+                    .bold()
+                
+                TextField("Email", text: $email)
                     .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-            
-            if !viewModel.errorMessage.isEmpty {
-                Text(viewModel.errorMessage)
-                    .foregroundColor(.red)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                TextField("Username", text: $username)
                     .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                SecureField("Password", text: $password)
+                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Button(action: {
+                    viewModel.register(email: email, username: username, password: password)
+                }) {
+                    Text("Register")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                
+                NavigationLink {
+                    LoginScreen()
+                        .navigationBarBackButtonHidden(true)
+                } label: {
+                    Text("Already have an account")
+                        .font(.headline)
+                        .padding(.horizontal, 18)
+                        .padding(.vertical, 7)
+                        .foregroundColor(.blue)
+                        .cornerRadius(8)
+                }
+                
+                if !viewModel.errorMessage.isEmpty {
+                    Text(viewModel.errorMessage)
+                        .foregroundColor(.red)
+                }
             }
         }
-        .padding()
     }
 }
 

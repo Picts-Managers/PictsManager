@@ -22,14 +22,10 @@ class AuthViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let loginForm: [String: Any] =
-            [
-                "login": login,
-                "password": password
-            ]
+        let loginForm = LoginForm(login: login, password: password)
  
         
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: loginForm) else {
+        guard let jsonData = try? JSONEncoder().encode(loginForm) else {
             self.errorMessage = "Failed to encode user data"
             return
         }
@@ -69,15 +65,10 @@ class AuthViewModel: ObservableObject {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let registerForm: [String: Any] =
-            [
-                "email": email,
-                "username": username,
-                "password": password
-            ]
+
+        let registerForm = RegisterForm(email: email, username: username, password: password)
  
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: registerForm) else {
+        guard let jsonData = try? JSONEncoder().encode(registerForm) else {
             self.errorMessage = "Failed to encode user data"
             return
         }
