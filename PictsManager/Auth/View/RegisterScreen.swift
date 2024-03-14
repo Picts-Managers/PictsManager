@@ -23,48 +23,52 @@ struct RegisterScreen: View {
                     .bold()
                 
                 TextField("Email", text: $email)
-                    .padding()
+                    .padding(.horizontal, 20)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
                 TextField("Username", text: $username)
-                    .padding()
+                    .padding(.horizontal, 20)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
                 SecureField("Password", text: $password)
-                    .padding()
+                    .padding(.horizontal, 20)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
-                Button(action: {
-                    viewModel.register(email: email, username: username, password: password)
-                    isAccountCreated = UserSessionManager.shared.isAuthenticated
-                }) {
-                    Text("Register")
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                .navigationDestination(isPresented: $isAccountCreated) { HomeScreen().navigationBarBackButtonHidden(true) }
-                
-                NavigationLink {
-                    LoginScreen()
-                        .navigationBarBackButtonHidden(true)
-                } label: {
-                    Text("Already have an account")
-                        .font(.headline)
-                        .padding(.horizontal, 18)
-                        .padding(.vertical, 7)
-                        .foregroundColor(.blue)
-                        .cornerRadius(8)
-                }
-                
-                if !viewModel.errorMessage.isEmpty {
-                    Text(viewModel.errorMessage)
-                        .foregroundColor(.red)
+                HStack {
+                    Button(action: {
+                        viewModel.register(email: email, username: username, password: password)
+                        isAccountCreated = UserSessionManager.shared.isAuthenticated
+                    }) {
+                        Text("Register")
+                            .font(.headline)
+                            .padding(.horizontal, 18)
+                            .padding(.vertical, 7)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                    }
+                    .navigationDestination(isPresented: $isAccountCreated) { HomeScreen().navigationBarBackButtonHidden(true) }
+                    
+                    if !viewModel.errorMessage.isEmpty {
+                        Text(viewModel.errorMessage)
+                            .foregroundColor(.red)
+                    }
+                    
+                    NavigationLink {
+                        LoginScreen()
+                            .navigationBarBackButtonHidden(true)
+                    } label: {
+                        Text("Already have an account")
+                            .font(.headline)
+                            .padding(.horizontal, 18)
+                            .padding(.vertical, 7)
+                            .foregroundColor(.blue)
+                            .cornerRadius(8)
+                    }
                 }
             }
         }
+        .padding()
     }
 }
 
