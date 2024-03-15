@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        
         TabView {
             Photos()
                 .tabItem() {
@@ -27,6 +26,8 @@ struct ContentView: View {
                     Text("Rechercher")
                 }
         }
+    // var body: some View{
+    //     LoginScreen()
     }
 }
 
