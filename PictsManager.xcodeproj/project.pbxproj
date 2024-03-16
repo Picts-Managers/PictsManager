@@ -64,16 +64,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A4A09E92BA063CA0006D27F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				1A4A09EA2BA063D90006D27F /* PhotosView.swift */,
-				1A4A09EC2BA063E50006D27F /* AlbumsView.swift */,
-				1A4A09EE2BA064630006D27F /* SearchView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		1A4A09F52BA0CF4E0006D27F /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +96,9 @@
 				226B369D2B9EFE2B001BB288 /* RegisterScreen.swift */,
 				22946C572BA3A0CA0052B612 /* AuthScreen.swift */,
 				22946C5B2BA5A98A0052B612 /* UserScreen.swift */,
+				1A4A09EA2BA063D90006D27F /* PhotosView.swift */,
+				1A4A09EC2BA063E50006D27F /* AlbumsView.swift */,
+				1A4A09EE2BA064630006D27F /* SearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -139,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				1A4A09F52BA0CF4E0006D27F /* Components */,
-				1A4A09E92BA063CA0006D27F /* Views */,
 				34CAE0CF2BA05C7900381E39 /* Data */,
 				34CAE0CA2BA055D300381E39 /* Home */,
 				22D8B6302B98EFF200734A99 /* Auth */,
