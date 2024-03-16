@@ -12,62 +12,50 @@ struct LoginScreen: View {
     @State private var username = ""
     @State private var password = ""
     @State private var isLoggedIn = false
+    @State private var isRegisterScreenPresented = false
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("PictsManager")
-                    .font(.title)
-                    .bold()
+            VStack(spacing: 20) {
                 
                 TextField("Username", text: $username)
-                    .padding(.horizontal, 20)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
                 
                 SecureField("Password", text: $password)
-                    .padding(.horizontal, 20)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
                 
-                HStack {
-                    Button(action: {
-                        viewModel.login(login: username, password: password)
-                        isLoggedIn = UserSessionManager.shared.isAuthenticated
-                    }) {
-                        Text("Login")
-                            .font(.headline)
-                            .padding(.horizontal, 18)
-                            .padding(.vertical, 7)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                    }
-                    .navigationDestination(isPresented: $isLoggedIn) { HomeScreen().navigationBarBackButtonHidden(true) }
-                    
-                    if !viewModel.errorMessage.isEmpty {
-                        Text(viewModel.errorMessage)
-                            .foregroundStyle(.red)
-                    }
-                    
-                    NavigationLink {
-                        RegisterScreen()
-                            .navigationBarBackButtonHidden(true)
-                    } label: {
-                        Text("Not an user yet? Register")
-                            .font(.headline)
-                            .padding(.horizontal, 18)
-                            .padding(.vertical, 7)
-                            .foregroundColor(.blue)
-                            .cornerRadius(8)
-                    }
+                Button(action: {
+                    viewModel.login(login: username, password: password)
+                    isLoggedIn = UserSessionManager.shared.isAuthenticated
+                }) {
+                    Text("Login")
+                        .font(.headline)
+                        .padding(.horizontal, 50)
+                        .padding(.vertical, 15)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(25)
                 }
+                .navigationDestination(isPresented: $isLoggedIn) { HomeScreen().navigationBarBackButtonHidden(true) }
+
+                if !viewModel.errorMessage.isEmpty {
+                    Text(viewModel.errorMessage)
+                        .foregroundStyle(.red)
+                }
+                
+                Spacer()
             }
         }
         .padding()
+        .navigationTitle(isLoggedIn ? "" : "Login")
+        .navigationBarBackButtonHidden(isLoggedIn)
     }
 }
 
-struct LoginScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginScreen()
-    }
+#Preview {
+    LoginScreen()
 }

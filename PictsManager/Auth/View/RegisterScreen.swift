@@ -17,64 +17,50 @@ struct RegisterScreen: View {
     
     var body: some View {
         NavigationStack{
-            VStack {
-                Text("Register")
-                    .font(.title)
-                    .bold()
-                
+            VStack(spacing: 20) {
                 TextField("Email", text: $email)
-                    .padding(.horizontal, 20)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
                 
                 TextField("Username", text: $username)
-                    .padding(.horizontal, 20)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
                 
                 SecureField("Password", text: $password)
-                    .padding(.horizontal, 20)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
                 
-                HStack {
-                    Button(action: {
-                        viewModel.register(email: email, username: username, password: password)
-                        isAccountCreated = UserSessionManager.shared.isAuthenticated
-                    }) {
-                        Text("Register")
-                            .font(.headline)
-                            .padding(.horizontal, 18)
-                            .padding(.vertical, 7)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                    }
-                    .navigationDestination(isPresented: $isAccountCreated) { HomeScreen().navigationBarBackButtonHidden(true) }
-                    
-                    if !viewModel.errorMessage.isEmpty {
-                        Text(viewModel.errorMessage)
-                            .foregroundColor(.red)
-                    }
-                    
-                    NavigationLink {
-                        LoginScreen()
-                            .navigationBarBackButtonHidden(true)
-                    } label: {
-                        Text("Already have an account")
-                            .font(.headline)
-                            .padding(.horizontal, 18)
-                            .padding(.vertical, 7)
-                            .foregroundColor(.blue)
-                            .cornerRadius(8)
-                    }
+            
+                Button(action: {
+                    viewModel.register(email: email, username: username, password: password)
+                    isAccountCreated = UserSessionManager.shared.isAuthenticated
+                }) {
+                    Text("Register")
+                        .font(.headline)
+                        .padding(.horizontal, 50)
+                        .padding(.vertical, 15)
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(25)
                 }
+                .navigationDestination(isPresented: $isAccountCreated) { HomeScreen().navigationBarBackButtonHidden(true) }
+                
+                if !viewModel.errorMessage.isEmpty {
+                    Text(viewModel.errorMessage)
+                        .foregroundColor(.red)
+                }
+                
+                Spacer()
             }
         }
         .padding()
+        .navigationTitle("Register")
     }
 }
 
-struct RegisterScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewModel = AuthViewModel()
-        RegisterScreen(viewModel: viewModel)
-    }
+#Preview() {
+    RegisterScreen()
 }

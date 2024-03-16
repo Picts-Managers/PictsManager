@@ -15,6 +15,8 @@
 		1A4A09FA2BA0EDF30006D27F /* PeriodSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A09F92BA0EDF30006D27F /* PeriodSelector.swift */; };
 		226B369C2B9EED44001BB288 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B369B2B9EED44001BB288 /* Api.swift */; };
 		226B369E2B9EFE2B001BB288 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B369D2B9EFE2B001BB288 /* RegisterScreen.swift */; };
+		22946C582BA3A0CA0052B612 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22946C572BA3A0CA0052B612 /* AuthScreen.swift */; };
+		22946C5C2BA5A98A0052B612 /* UserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22946C5B2BA5A98A0052B612 /* UserScreen.swift */; };
 		22D8B62E2B98ECED00734A99 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D8B62D2B98ECED00734A99 /* User.swift */; };
 		22D8B6322B98F06100734A99 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D8B6312B98F06100734A99 /* LoginScreen.swift */; };
 		22D8B6342B98F1C300734A99 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D8B6332B98F1C300734A99 /* AuthViewModel.swift */; };
@@ -36,6 +38,8 @@
 		1A4A09F92BA0EDF30006D27F /* PeriodSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSelector.swift; sourceTree = "<group>"; };
 		226B369B2B9EED44001BB288 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		226B369D2B9EFE2B001BB288 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
+		22946C572BA3A0CA0052B612 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
+		22946C5B2BA5A98A0052B612 /* UserScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScreen.swift; sourceTree = "<group>"; };
 		22D8B62D2B98ECED00734A99 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22D8B6312B98F06100734A99 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		22D8B6332B98F1C300734A99 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 			children = (
 				22D8B6312B98F06100734A99 /* LoginScreen.swift */,
 				226B369D2B9EFE2B001BB288 /* RegisterScreen.swift */,
+				22946C572BA3A0CA0052B612 /* AuthScreen.swift */,
+				22946C5B2BA5A98A0052B612 /* UserScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,7 +283,9 @@
 				226B369C2B9EED44001BB288 /* Api.swift in Sources */,
 				22D8B6322B98F06100734A99 /* LoginScreen.swift in Sources */,
 				226B369E2B9EFE2B001BB288 /* RegisterScreen.swift in Sources */,
+				22946C5C2BA5A98A0052B612 /* UserScreen.swift in Sources */,
 				34CAE0CC2BA0564C00381E39 /* HomeScreen.swift in Sources */,
+				22946C582BA3A0CA0052B612 /* AuthScreen.swift in Sources */,
 				2F15DE872B96075400D74795 /* PictsManagerApp.swift in Sources */,
 				22D8B6342B98F1C300734A99 /* AuthViewModel.swift in Sources */,
 				34CAE0D72BA0622B00381E39 /* UserSessionManager.swift in Sources */,
