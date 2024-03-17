@@ -21,12 +21,12 @@ struct LoginScreen: View {
                 TextField("Username", text: $username)
                     .padding()
                     .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
+                    .cornerRadius(10)
                 
                 SecureField("Password", text: $password)
                     .padding()
                     .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
+                    .cornerRadius(10)
                 
                 Button(action: {
                     viewModel.login(login: username, password: password)
