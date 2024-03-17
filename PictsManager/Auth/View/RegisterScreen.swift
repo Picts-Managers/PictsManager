@@ -21,17 +21,17 @@ struct RegisterScreen: View {
                 TextField("Email", text: $email)
                     .padding()
                     .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
+                    .cornerRadius(10)
                 
                 TextField("Username", text: $username)
                     .padding()
                     .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
+                    .cornerRadius(10)
                 
                 SecureField("Password", text: $password)
                     .padding()
                     .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
+                    .cornerRadius(10)
                 
             
                 Button(action: {
@@ -47,11 +47,6 @@ struct RegisterScreen: View {
                         .cornerRadius(25)
                 }
                 .navigationDestination(isPresented: $isAccountCreated) { HomeScreen().navigationBarBackButtonHidden(true) }
-                
-                if !viewModel.errorMessage.isEmpty {
-                    Text(viewModel.errorMessage)
-                        .foregroundColor(.red)
-                }
                 
                 Spacer()
             }
