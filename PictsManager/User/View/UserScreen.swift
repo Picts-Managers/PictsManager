@@ -12,6 +12,8 @@ struct UserScreen: View {
     
     @StateObject var viewModel: UserViewModel
     @State private var isEditing = false
+    @State private var editableUsername: String = ""
+    @State private var editableEmail: String = ""
     
     var body: some View {
         NavigationStack {
@@ -22,7 +24,7 @@ struct UserScreen: View {
                     .bold()
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                 
-                TextField("Username", text: $viewModel.user.username)
+                TextField("Username", text: /*$viewModel.user.username*/ $editableUsername)
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(Color.gray.opacity(0.2))
@@ -36,7 +38,7 @@ struct UserScreen: View {
                     .bold()
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                 
-                TextField("Email", text: $viewModel.user.email)
+                TextField("Email", text: /*$viewModel.user.email*/ $editableEmail)
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(Color.gray.opacity(0.2))
@@ -58,6 +60,9 @@ struct UserScreen: View {
             .navigationTitle("Hi, \(viewModel.user.username)")
             .onAppear {
                 viewModel.fetchUser()
+                editableUsername = viewModel.user.username
+                editableEmail = viewModel.user.email
+                
             }
         }
     }
