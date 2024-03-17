@@ -9,9 +9,11 @@ import Foundation
 
 class UserViewModel: ObservableObject {
     
-    @Published var user: User = User(_id: "", email: "", username: "", token: "")
+    @Published var user: User = User(_id: "123", email: "mail@mail.com", username: "mynkie", token: "1234")
     @Published var errorMessage: String? = ""
 
+    init() {}
+    
     func fetchUser() {
         guard let url = URL(string: Api.Auth.me) else {
             self.errorMessage = "Invalid URL for user/me endpoint"

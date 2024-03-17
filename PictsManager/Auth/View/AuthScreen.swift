@@ -26,9 +26,9 @@ struct AuthScreen: View {
                 } onCompletion: { result in
                     switch result {
                         case .success(let authResults):
-                            guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
-                            let fullName = credential.fullName
-                            let email = credential.email
+//                            guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
+//                            let fullName = credential.fullName
+//                            let email = credential.email
                             print("Authorisation successful")
                         case .failure(let error):
                             print("Authorisation failed: \(error.localizedDescription)")

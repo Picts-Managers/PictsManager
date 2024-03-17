@@ -31,8 +31,14 @@ struct ContentView: View {
          AuthScreen()
 =======
     var body: some View {
+<<<<<<< HEAD
         AuthScreen()
 >>>>>>> b0c7c9c (add: init userscreen)
+=======
+        let userViewModel = UserViewModel()
+        UserScreen(viewModel: userViewModel)
+//        AuthScreen()
+>>>>>>> beee41f (add: editable/non-editable textfields for user's information)
     }
 }
 

@@ -11,52 +11,59 @@ import SwiftUI
 struct UserScreen: View {
     
     @StateObject var viewModel: UserViewModel
+    @State private var isEditing = false
     
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                Text("Username: \(viewModel.user.username)")
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
                 
-                Text("Email \(viewModel.user.username)")
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
+                Text("Username")
+                    .font(.title2)
+                    .bold()
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                 
-                Text("Email \(viewModel.user.username)")
+                TextField("Username", text: $viewModel.user.username)
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(8)
+                    .disabled(!isEditing)
+                
+        
+                Text("Email")
+                    .font(.title2)
+                    .bold()
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                
+                TextField("Email", text: $viewModel.user.email)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
+                    .disabled(!isEditing)
                 
                 Spacer()
             }
-            
-            // for testing purpose only
-            Button(action: {
-                viewModel.fetchUser()
-            }) {
-                Text("Refresh User Data")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
+            .padding()
+            .navigationBarItems(trailing: VStack {
+                Button(action: {
+                    isEditing.toggle()
+                }) {
+                    Text(isEditing ? "Done" : "Edit")
+                }
             }
-            .navigationTitle("Hi, mynkie \(viewModel.user.username)")
+            )
+            .navigationBarTitle("Hi, \(viewModel.user.username)")
             .onAppear {
                 viewModel.fetchUser()
             }
         }
-        .padding()
     }
-    
-    struct UserScreen_Previews: PreviewProvider {
-        static var previews: some View {
-            UserScreen(viewModel: UserViewModel())
-        }
+}
+
+struct UserScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        let userViewModel = UserViewModel()
+        UserScreen(viewModel: userViewModel)
     }
 }
