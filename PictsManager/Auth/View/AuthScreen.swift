@@ -25,7 +25,7 @@ struct AuthScreen: View {
                     request.requestedScopes =  [.fullName, .email]
                 } onCompletion: { result in
                     switch result {
-                        case .success(let authResults):
+                        case .success(let _authResults):
 //                            guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
 //                            let fullName = credential.fullName
 //                            let email = credential.email
