@@ -10,36 +10,12 @@ import SwiftUI
 struct ContentView: View {
 
     var body: some View {
-        TabView {
-            Photos()
-                .tabItem() {
-                    Image(systemName: "photo.fill.on.rectangle.fill")
-                    Text("Photothèque")
-                }
-            Albums()
-                .tabItem {
-                    Image(systemName: "rectangle.stack.fill")
-                    Text("Albums")
-                }
-            Search()
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Rechercher")
-                }
-            
-            UserScreen(viewModel: UserViewModel())
-                .tabItem {
-                    Image(systemName: "person.crop.circle.fill")
-                    Text("Me")
-                }
-        }
-    
-//     var body: some View{
-//         AuthScreen()
-
+        Navbar()
+        
+        // AuthScreen()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView();
 }
