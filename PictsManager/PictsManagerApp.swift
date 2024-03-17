@@ -15,5 +15,3 @@ struct PictsManagerApp: App {
         }
     }
 }
-
-
