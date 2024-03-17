@@ -129,6 +129,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		22BB3B502BA79C8600A94254 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				22BB3B4C2BA79A4E00A94254 /* Navbar.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		22D8B62B2B98ECCE00734A99 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +183,7 @@
 		2F15DE852B96075400D74795 /* PictsManager */ = {
 			isa = PBXGroup;
 			children = (
+				22BB3B502BA79C8600A94254 /* Common */,
 				34CAE0CF2BA05C7900381E39 /* Data */,
 				22D8B6302B98EFF200734A99 /* Auth */,
 				2209B00E2BA77D4A00036F36 /* Image */,
@@ -182,7 +191,6 @@
 				34CAE0CA2BA055D300381E39 /* Home */,
 				2F15DE862B96075400D74795 /* PictsManagerApp.swift */,
 				1A4A09F22BA0880F0006D27F /* ContentView.swift */,
-				22BB3B4C2BA79A4E00A94254 /* Navbar.swift */,
 				2F15DE8A2B96075500D74795 /* Assets.xcassets */,
 				2F15DE8C2B96075500D74795 /* Preview Content */,
 			);
