@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+<<<<<<< HEAD
 //    var body: some View {
 //        TabView {
 //            Photos()
@@ -28,6 +29,10 @@ struct ContentView: View {
 //        }
      var body: some View{
          AuthScreen()
+=======
+    var body: some View {
+        AuthScreen()
+>>>>>>> b0c7c9c (add: init userscreen)
     }
 }
 

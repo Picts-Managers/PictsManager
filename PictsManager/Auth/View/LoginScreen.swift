@@ -41,11 +41,6 @@ struct LoginScreen: View {
                         .cornerRadius(25)
                 }
                 .navigationDestination(isPresented: $isLoggedIn) { HomeScreen().navigationBarBackButtonHidden(true) }
-
-                if !viewModel.errorMessage.isEmpty {
-                    Text(viewModel.errorMessage)
-                        .foregroundStyle(.red)
-                }
                 
                 Spacer()
             }

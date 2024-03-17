@@ -9,7 +9,7 @@ import Foundation
 
 class AuthViewModel: ObservableObject {
     
-    @Published var errorMessage = ""
+    @Published var errorMessage: String? = ""
     
     func login(login: String, password: String) {
         guard let url = URL(string: Api.Auth.login) else {
@@ -33,7 +33,7 @@ class AuthViewModel: ObservableObject {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
-                self.errorMessage = "Error"
+                self.errorMessage = error?.localizedDescription
                 return
             }
             
@@ -48,7 +48,7 @@ class AuthViewModel: ObservableObject {
                 if let errorMessage = String(data: data, encoding: .utf8) {
                     self.errorMessage = errorMessage
                 } else {
-                    self.errorMessage = "Error"
+                    self.errorMessage = error?.localizedDescription
                 }
             }
         }.resume()

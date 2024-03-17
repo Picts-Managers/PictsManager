@@ -48,11 +48,6 @@ struct RegisterScreen: View {
                 }
                 .navigationDestination(isPresented: $isAccountCreated) { HomeScreen().navigationBarBackButtonHidden(true) }
                 
-                if !viewModel.errorMessage.isEmpty {
-                    Text(viewModel.errorMessage)
-                        .foregroundColor(.red)
-                }
-                
                 Spacer()
             }
         }
