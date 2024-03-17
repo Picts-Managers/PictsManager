@@ -2,20 +2,41 @@
 //  ContentView.swift
 //  PictsManager
 //
-//  Created by Charles Lamarque on 04/03/2024.
+//  Created by Valentin Caure on 12/03/2024.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            Photos()
+                .tabItem() {
+                    Image(systemName: "photo.fill.on.rectangle.fill")
+                    Text("Photothèque")
+                }
+            Albums()
+                .tabItem {
+                    Image(systemName: "rectangle.stack.fill")
+                    Text("Albums")
+                }
+            Search()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Rechercher")
+                }
+            
+            UserScreen(viewModel: UserViewModel())
+                .tabItem {
+                    Image(systemName: "person.crop.circle.fill")
+                    Text("Me")
+                }
         }
-        .padding()
+    
+//     var body: some View{
+//         AuthScreen()
+
     }
 }
 
