@@ -8,14 +8,33 @@
 import SwiftUI
 
 struct Search: View {
+    
+    @State private var searchText = ""
+    
+    private let countries = ["France", "England", "USA", "Vietnam", "Japan", "Korea"]
+    
+    private var searchResults : [String] {
+        searchText.isEmpty ? countries : countries.filter { $0.contains(searchText) }
+    }
+    
     var body: some View {
-        ZStack(content:{
-            Color.blue
-
-            Image.init(systemName: "magnifyingglass")
-                .foregroundColor(Color.white)
-                .font(.system(size: 100))
-        })
+        NavigationStack {
+            VStack {
+                List(searchResults, id: \.self) { country in
+                    Text(country)
+                }
+            }
+            .navigationTitle("Rechercher")
+            .searchable(text: $searchText)
+        }
+        
+        //        ZStack(content:{
+        //            Color.blue
+        //
+        //            Image.init(systemName: "magnifyingglass")
+        //                .foregroundColor(Color.white)
+        //                .font(.system(size: 100))
+        //        })
     }
 }
 

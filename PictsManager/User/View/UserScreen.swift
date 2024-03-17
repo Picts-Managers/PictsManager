@@ -55,7 +55,7 @@ struct UserScreen: View {
                 }
             }
             )
-            .navigationBarTitle("Hi, \(viewModel.user.username)")
+            .navigationTitle("Hi, \(viewModel.user.username)")
             .onAppear {
                 viewModel.fetchUser()
             }
