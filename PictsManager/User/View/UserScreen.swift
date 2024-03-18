@@ -49,14 +49,15 @@ struct UserScreen: View {
                 Spacer()
             }
             .padding()
-            .navigationBarItems(trailing: VStack {
-                Button(action: {
-                    isEditing.toggle()
-                }) {
-                    Text(isEditing ? "Done" : "Edit")
+            .toolbar {
+                ToolbarItem {
+                    Button(action: {
+                        isEditing.toggle()
+                    }) {
+                        Text(isEditing ? "Done" : "Edit")
+                    }
                 }
             }
-            )
             .navigationTitle("Hi, \(viewModel.user.username)")
             .onAppear {
                 viewModel.fetchUser()
