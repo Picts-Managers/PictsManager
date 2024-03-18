@@ -51,7 +51,7 @@ struct RegisterScreen: View {
                         .foregroundColor(.white)
                         .cornerRadius(25)
                 }
-                .navigationDestination(isPresented: $isAccountCreated) { HomeScreen().navigationBarBackButtonHidden(true) }
+                .navigationDestination(isPresented: $isAccountCreated) { Navbar().navigationBarBackButtonHidden(true) }
                 
                 Spacer()
             }
