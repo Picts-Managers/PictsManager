@@ -34,6 +34,8 @@
 		2F15DE872B96075400D74795 /* PictsManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F15DE862B96075400D74795 /* PictsManagerApp.swift */; };
 		2F15DE8B2B96075500D74795 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F15DE8A2B96075500D74795 /* Assets.xcassets */; };
 		2F15DE8E2B96075500D74795 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F15DE8D2B96075500D74795 /* Preview Assets.xcassets */; };
+		2F9DD90A2BA768B700567854 /* AlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD9092BA768B700567854 /* AlbumsView.swift */; };
+		2F9DD90C2BA84DCD00567854 /* AlbumRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD90B2BA84DCD00567854 /* AlbumRow.swift */; };
 		34CAE0CC2BA0564C00381E39 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0CB2BA0564C00381E39 /* HomeScreen.swift */; };
 		34CAE0D32BA05D5800381E39 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0D22BA05D5800381E39 /* LoginForm.swift */; };
 		34CAE0D52BA05DA900381E39 /* RegisterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0D42BA05DA900381E39 /* RegisterForm.swift */; };
@@ -69,6 +71,8 @@
 		2F15DE862B96075400D74795 /* PictsManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictsManagerApp.swift; sourceTree = "<group>"; };
 		2F15DE8A2B96075500D74795 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F15DE8D2B96075500D74795 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2F9DD9092BA768B700567854 /* AlbumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsView.swift; sourceTree = "<group>"; };
+		2F9DD90B2BA84DCD00567854 /* AlbumRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRow.swift; sourceTree = "<group>"; };
 		34CAE0CB2BA0564C00381E39 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		34CAE0D22BA05D5800381E39 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
 		34CAE0D42BA05DA900381E39 /* RegisterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterForm.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 		2F15DE852B96075400D74795 /* PictsManager */ = {
 			isa = PBXGroup;
 			children = (
+				2F9DD9082BA7688300567854 /* Albums */,
 				34CAE0CF2BA05C7900381E39 /* Data */,
 				22BB3B542BA894F900A94254 /* Screen */,
 				2F15DE862B96075400D74795 /* PictsManagerApp.swift */,
@@ -262,6 +267,15 @@
 				2F15DE8D2B96075500D74795 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2F9DD9082BA7688300567854 /* Albums */ = {
+			isa = PBXGroup;
+			children = (
+				2F9DD9092BA768B700567854 /* AlbumsView.swift */,
+				2F9DD90B2BA84DCD00567854 /* AlbumRow.swift */,
+			);
+			path = Albums;
 			sourceTree = "<group>";
 		};
 		34CAE0CA2BA055D300381E39 /* Home */ = {
@@ -393,9 +407,12 @@
 				1A4A09ED2BA063E50006D27F /* AlbumsView.swift in Sources */,
 				22BB3B692BA996A000A94254 /* ToastManager.swift in Sources */,
 				226B369C2B9EED44001BB288 /* Api.swift in Sources */,
+				2F9DD90C2BA84DCD00567854 /* AlbumRow.swift in Sources */,
 				22D8B6322B98F06100734A99 /* LoginScreen.swift in Sources */,
 				226B369E2B9EFE2B001BB288 /* RegisterScreen.swift in Sources */,
 				22946C622BA5B16E0052B612 /* UserViewModel.swift in Sources */,
+				2F9DD90A2BA768B700567854 /* AlbumsView.swift in Sources */,
+				22946C5C2BA5A98A0052B612 /* UserScreen.swift in Sources */,
 				34CAE0CC2BA0564C00381E39 /* HomeScreen.swift in Sources */,
 				22BB3B662BA8E17A00A94254 /* ToastView.swift in Sources */,
 				22946C582BA3A0CA0052B612 /* AuthScreen.swift in Sources */,
