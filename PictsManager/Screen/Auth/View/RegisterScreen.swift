@@ -14,6 +14,7 @@ struct RegisterScreen: View {
     @State private var email = ""
     @State private var password = ""
     @State private var isAccountCreated = false
+    @State private var toast: Toast? = nil
     
     var body: some View {
         NavigationStack{
@@ -42,6 +43,13 @@ struct RegisterScreen: View {
                 Button(action: {
                     viewModel.register(email: email, username: username, password: password)
                     isAccountCreated = UserSessionManager.shared.isAuthenticated
+                    
+                    if (isAccountCreated == true) {
+                        toast = Toast(style: .success, message: "Registration sucessfully")
+                    } else {
+                        toast = Toast(style: .error, message: "Registration failed")
+                    }
+                    
                 }) {
                     Text("Register")
                         .font(.headline)
@@ -55,6 +63,7 @@ struct RegisterScreen: View {
                 
                 Spacer()
             }
+            .toastView(toast: $toast)
         }
         .navigationTitle("Register")
     }

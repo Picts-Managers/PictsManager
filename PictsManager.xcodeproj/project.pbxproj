@@ -20,6 +20,11 @@
 		22946C622BA5B16E0052B612 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22946C612BA5B16E0052B612 /* UserViewModel.swift */; };
 		22BB3B4D2BA79A4E00A94254 /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB3B4C2BA79A4E00A94254 /* Navbar.swift */; };
 		22BB3B532BA87D9F00A94254 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB3B522BA87D9F00A94254 /* LoginResponse.swift */; };
+		22BB3B5E2BA89C8A00A94254 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB3B5D2BA89C8A00A94254 /* Toast.swift */; };
+		22BB3B602BA89CEE00A94254 /* ToastStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB3B5F2BA89CEE00A94254 /* ToastStyle.swift */; };
+		22BB3B622BA8C5A800A94254 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB3B612BA8C5A800A94254 /* ToastModifier.swift */; };
+		22BB3B642BA8DCBB00A94254 /* ToastHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB3B632BA8DCBB00A94254 /* ToastHelper.swift */; };
+		22BB3B662BA8E17A00A94254 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB3B652BA8E17A00A94254 /* ToastView.swift */; };
 		22D8B62E2B98ECED00734A99 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D8B62D2B98ECED00734A99 /* User.swift */; };
 		22D8B6322B98F06100734A99 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D8B6312B98F06100734A99 /* LoginScreen.swift */; };
 		22D8B6342B98F1C300734A99 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D8B6332B98F1C300734A99 /* AuthViewModel.swift */; };
@@ -46,6 +51,11 @@
 		22946C612BA5B16E0052B612 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		22BB3B4C2BA79A4E00A94254 /* Navbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
 		22BB3B522BA87D9F00A94254 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		22BB3B5D2BA89C8A00A94254 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		22BB3B5F2BA89CEE00A94254 /* ToastStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastStyle.swift; sourceTree = "<group>"; };
+		22BB3B612BA8C5A800A94254 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
+		22BB3B632BA8DCBB00A94254 /* ToastHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastHelper.swift; sourceTree = "<group>"; };
+		22BB3B652BA8E17A00A94254 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToastView.swift; path = PictsManager/Screen/Common/Toast/ToastView.swift; sourceTree = SOURCE_ROOT; };
 		22D8B62D2B98ECED00734A99 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22D8B6312B98F06100734A99 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		22D8B6332B98F1C300734A99 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -135,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				22BB3B4C2BA79A4E00A94254 /* Navbar.swift */,
+				22BB3B572BA89C1000A94254 /* Toast */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -157,6 +168,18 @@
 				34CAE0CA2BA055D300381E39 /* Home */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		22BB3B572BA89C1000A94254 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				22BB3B652BA8E17A00A94254 /* ToastView.swift */,
+				22BB3B5D2BA89C8A00A94254 /* Toast.swift */,
+				22BB3B5F2BA89CEE00A94254 /* ToastStyle.swift */,
+				22BB3B612BA8C5A800A94254 /* ToastModifier.swift */,
+				22BB3B632BA8DCBB00A94254 /* ToastHelper.swift */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 		22D8B62B2B98ECCE00734A99 /* ViewModel */ = {
@@ -338,6 +361,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22BB3B602BA89CEE00A94254 /* ToastStyle.swift in Sources */,
+				22BB3B642BA8DCBB00A94254 /* ToastHelper.swift in Sources */,
 				22BB3B4D2BA79A4E00A94254 /* Navbar.swift in Sources */,
 				1A4A09EB2BA063D90006D27F /* PhotosView.swift in Sources */,
 				1A4A09F32BA0880F0006D27F /* ContentView.swift in Sources */,
@@ -352,12 +377,15 @@
 				226B369E2B9EFE2B001BB288 /* RegisterScreen.swift in Sources */,
 				22946C622BA5B16E0052B612 /* UserViewModel.swift in Sources */,
 				34CAE0CC2BA0564C00381E39 /* HomeScreen.swift in Sources */,
+				22BB3B662BA8E17A00A94254 /* ToastView.swift in Sources */,
 				22946C582BA3A0CA0052B612 /* AuthScreen.swift in Sources */,
+				22BB3B5E2BA89C8A00A94254 /* Toast.swift in Sources */,
 				2F15DE872B96075400D74795 /* PictsManagerApp.swift in Sources */,
 				22D8B6342B98F1C300734A99 /* AuthViewModel.swift in Sources */,
 				34CAE0D72BA0622B00381E39 /* UserSessionManager.swift in Sources */,
 				34CAE0D32BA05D5800381E39 /* LoginForm.swift in Sources */,
 				34CAE0D52BA05DA900381E39 /* RegisterForm.swift in Sources */,
+				22BB3B622BA8C5A800A94254 /* ToastModifier.swift in Sources */,
 				22BB3B532BA87D9F00A94254 /* LoginResponse.swift in Sources */,
 				22D8B62E2B98ECED00734A99 /* User.swift in Sources */,
 			);
