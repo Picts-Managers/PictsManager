@@ -12,7 +12,6 @@ struct LoginScreen: View {
     @State private var username = ""
     @State private var password = ""
     @State private var isLoggedIn = false
-    @State private var isRegisterScreenPresented = false
     
     var body: some View {
         

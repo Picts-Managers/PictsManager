@@ -14,6 +14,7 @@ struct UserScreen: View {
     @State private var isEditing = false
     @State private var editableUsername: String = ""
     @State private var editableEmail: String = ""
+    @State private var isLoggedIn = false
     
     var body: some View {
         NavigationStack {
@@ -63,7 +64,8 @@ struct UserScreen: View {
                 Spacer()
             
                 Button(action: {
-                    
+                    isLoggedIn = UserSessionManager.shared.isAuthenticated
+                    print(isLoggedIn)
                 }) {
                     Text("Logout")
                         .font(.headline)
@@ -74,7 +76,7 @@ struct UserScreen: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-//                .navigationDestination(isPresented: $isLoggedIn) { Navbar().navigationBarBackButtonHidden(true) }
+                .navigationDestination(isPresented: $isLoggedIn) { AuthScreen().navigationBarBackButtonHidden(true) }
                 
             }
             .padding()
@@ -92,7 +94,6 @@ struct UserScreen: View {
                 viewModel.fetchUser()
                 editableUsername = viewModel.user.username
                 editableEmail = viewModel.user.email
-                
             }
         }
     }
