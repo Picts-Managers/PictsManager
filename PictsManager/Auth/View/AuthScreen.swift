@@ -12,15 +12,15 @@ import AuthenticationServices
 /// This screen is the entrypoint of the application
 struct AuthScreen: View {
     var body: some View {
-        NavigationView {
-            VStack(spacing: 20) {
-                
+        NavigationStack {
+            VStack {
                 Spacer()
                 
                 Text("PictsManager")
                     .font(.title)
                     .bold()
-                                
+                
+                
                 NavigationLink(destination: LoginScreen()) {
                     Text("Login")
                         .font(.headline)

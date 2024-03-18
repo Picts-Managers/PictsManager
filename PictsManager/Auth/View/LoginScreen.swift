@@ -17,19 +17,21 @@ struct LoginScreen: View {
     var body: some View {
         
         NavigationStack {
-            VStack(spacing: 20) {
-                
-                TextField("Username", text: $username)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
-                    .textCase(.lowercase)
-                
-                SecureField("Password", text: $password)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
-                    .textCase(.lowercase)
+            VStack {
+                VStack {
+                    TextField("Username", text: $username)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(10)
+                        .textCase(.lowercase)
+                    
+                    SecureField("Password", text: $password)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(10)
+                        .textCase(.lowercase)
+                }
+                .padding()
                 
                 Button(action: {
                     Task {
@@ -50,7 +52,6 @@ struct LoginScreen: View {
                 Spacer()
             }
         }
-        .padding()
         .navigationTitle(isLoggedIn ? "" : "Login")
         .navigationBarBackButtonHidden(isLoggedIn)
     }

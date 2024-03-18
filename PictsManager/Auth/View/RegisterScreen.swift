@@ -18,25 +18,27 @@ struct RegisterScreen: View {
     var body: some View {
         NavigationStack{
             VStack(spacing: 20) {
-                TextField("Email", text: $email)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
-                    .textCase(.lowercase)
+                VStack {
+                    TextField("Email", text: $email)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(10)
+                        .textCase(.lowercase)
+                    
+                    TextField("Username", text: $username)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(10)
+                        .textCase(.lowercase)
+                    
+                    SecureField("Password", text: $password)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(10)
+                        .textCase(.lowercase)
+                }
+                .padding()
                 
-                TextField("Username", text: $username)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
-                    .textCase(.lowercase)
-                
-                SecureField("Password", text: $password)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
-                    .textCase(.lowercase)
-                
-            
                 Button(action: {
                     viewModel.register(email: email, username: username, password: password)
                     isAccountCreated = UserSessionManager.shared.isAuthenticated
@@ -54,7 +56,6 @@ struct RegisterScreen: View {
                 Spacer()
             }
         }
-        .padding()
         .navigationTitle("Register")
     }
 }

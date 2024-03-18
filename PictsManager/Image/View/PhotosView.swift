@@ -15,10 +15,10 @@ struct Photos: View {
                 PhotosList()
             VStack{
                 Spacer()
-                PeriodSelector().padding(.all, 10)
-
+                PeriodSelector()
 
             }
+            .padding(.bottom, 10)
         }
     }
 }
