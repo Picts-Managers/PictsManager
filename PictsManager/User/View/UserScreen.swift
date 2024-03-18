@@ -29,7 +29,7 @@ struct UserScreen: View {
                     .frame(maxWidth: .infinity)
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(8)
-                    .textCase(.lowercase)
+                    .autocapitalization(.none)
                     .disabled(!isEditing)
                 
         
@@ -43,7 +43,7 @@ struct UserScreen: View {
                     .frame(maxWidth: .infinity)
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(8)
-                    .textCase(.lowercase)
+                    .autocapitalization(.none)
                     .disabled(!isEditing)
                 
                 
