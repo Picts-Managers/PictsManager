@@ -20,22 +20,6 @@ struct AuthScreen: View {
                 Text("PictsManager")
                     .font(.title)
                     .bold()
-                
-                SignInWithAppleButton(.signIn) { request in
-                    request.requestedScopes =  [.fullName, .email]
-                } onCompletion: { result in
-                    switch result {
-                        case .success(let _authResults):
-//                            guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
-//                            let fullName = credential.fullName
-//                            let email = credential.email
-                            print("Authorisation successful")
-                        case .failure(let error):
-                            print("Authorisation failed: \(error.localizedDescription)")
-                    }
-                }
-                .frame(height: 50)
-                .signInWithAppleButtonStyle(.whiteOutline)
                                 
                 NavigationLink(destination: LoginScreen()) {
                     Text("Login")
