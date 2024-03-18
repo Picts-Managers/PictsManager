@@ -18,20 +18,23 @@ struct LoginScreen: View {
         
         NavigationStack {
             VStack {
-                VStack {
+                HStack {
                     TextField("Username", text: $username)
                         .padding()
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(10)
                         .textCase(.lowercase)
+                }
+                .padding([.leading, .trailing], 20)
                     
+                HStack {
                     SecureField("Password", text: $password)
                         .padding()
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(10)
                         .textCase(.lowercase)
                 }
-                .padding()
+                .padding([.leading, .trailing], 20)
                 
                 Button(action: {
                     Task {
