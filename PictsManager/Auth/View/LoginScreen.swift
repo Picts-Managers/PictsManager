@@ -32,10 +32,10 @@ struct LoginScreen: View {
                     .textCase(.lowercase)
                 
                 Button(action: {
-                    viewModel.login(login: username, password: password)
-                    isLoggedIn = UserSessionManager.shared.isAuthenticated
-                    print("tu ne serais pas dans le rush?")
-                    print("isAuthenticated", UserSessionManager.shared.isAuthenticated)
+                    Task {
+                        await viewModel.login(login: username, password: password)
+                        isLoggedIn = UserSessionManager.shared.isAuthenticated
+                    }
                 }) {
                     Text("Login")
                         .font(.headline)
