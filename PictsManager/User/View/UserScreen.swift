@@ -61,6 +61,21 @@ struct UserScreen: View {
                     .disabled(!isEditing)
                 
                 Spacer()
+            
+                Button(action: {
+                    
+                }) {
+                    Text("Logout")
+                        .font(.headline)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+//                .navigationDestination(isPresented: $isLoggedIn) { Navbar().navigationBarBackButtonHidden(true) }
+                
             }
             .padding()
             .toolbar {
