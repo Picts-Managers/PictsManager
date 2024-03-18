@@ -15,6 +15,7 @@ struct LoginScreen: View {
     @State private var isRegisterScreenPresented = false
     
     var body: some View {
+        
         NavigationStack {
             VStack(spacing: 20) {
                 
@@ -22,15 +23,19 @@ struct LoginScreen: View {
                     .padding()
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
+                    .textCase(.lowercase)
                 
                 SecureField("Password", text: $password)
                     .padding()
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
+                    .textCase(.lowercase)
                 
                 Button(action: {
                     viewModel.login(login: username, password: password)
                     isLoggedIn = UserSessionManager.shared.isAuthenticated
+                    print("tu ne serais pas dans le rush?")
+                    print("isAuthenticated", UserSessionManager.shared.isAuthenticated)
                 }) {
                     Text("Login")
                         .font(.headline)
@@ -40,7 +45,7 @@ struct LoginScreen: View {
                         .foregroundColor(.white)
                         .cornerRadius(25)
                 }
-                .navigationDestination(isPresented: $isLoggedIn) { HomeScreen().navigationBarBackButtonHidden(true) }
+                .navigationDestination(isPresented: $isLoggedIn) { Navbar().navigationBarBackButtonHidden(true) }
                 
                 Spacer()
             }

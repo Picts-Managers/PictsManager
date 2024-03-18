@@ -22,16 +22,19 @@ struct RegisterScreen: View {
                     .padding()
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
+                    .textCase(.lowercase)
                 
                 TextField("Username", text: $username)
                     .padding()
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
+                    .textCase(.lowercase)
                 
                 SecureField("Password", text: $password)
                     .padding()
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
+                    .textCase(.lowercase)
                 
             
                 Button(action: {

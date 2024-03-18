@@ -12,6 +12,10 @@ class UserSessionManager {
 
     private let tokenKey = "AuthToken"
 
+    func getToken() -> String? {
+        return authToken
+    }
+    
     var isAuthenticated: Bool {
         return authToken != nil
     }
