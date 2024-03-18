@@ -46,6 +46,20 @@ struct UserScreen: View {
                     .textCase(.lowercase)
                     .disabled(!isEditing)
                 
+                
+                Text("Password")
+                    .font(.title2)
+                    .bold()
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                
+                SecureField("Password", text: /*$viewModel.user.email*/ $editableEmail)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
+                    .textCase(.lowercase)
+                    .disabled(!isEditing)
+                
                 Spacer()
             }
             .padding()
