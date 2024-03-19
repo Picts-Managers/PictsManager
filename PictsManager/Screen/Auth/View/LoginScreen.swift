@@ -59,19 +59,6 @@ struct LoginScreen: View {
                 }
                 .navigationDestination(isPresented: $isLoggedIn) { Navbar().navigationBarBackButtonHidden(true) }
                 
-                //for testing purposes, remove later
-                Button(action: {
-                    toastManager.toast = Toast(style: .success, message: "Login sucessfully", duration: 15)
-                }) {
-                    Text("test")
-                        .font(.headline)
-                        .padding(.horizontal, 50)
-                        .padding(.vertical, 15)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(25)
-                }
-                
                 Spacer()
             }
             .toastView(toast: $toastManager.toast)
