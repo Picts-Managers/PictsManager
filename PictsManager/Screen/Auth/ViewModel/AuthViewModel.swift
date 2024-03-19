@@ -11,7 +11,7 @@ class AuthViewModel: ObservableObject {
     
     @Published var errorMessage: String? = ""
     
-    func login(login: String, password: String) {
+    func login(login: String, password: String) async {
         guard let url = URL(string: Api.Auth.login) else {
             self.errorMessage = "Invalid URL for login endpoint"
             return
@@ -38,11 +38,8 @@ class AuthViewModel: ObservableObject {
             }
             
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                if let responseData = try? JSONDecoder().decode(User.self, from: data) {
-                    UserSessionManager.shared.saveAuthToken(responseData.token)
-
-                    print("responseData: ", responseData)
-                    print("After UserSession", UserSessionManager.shared.isAuthenticated)
+                if let responseData = try? JSONDecoder().decode(LoginResponse.self, from: data) {
+                    UserSessionManager.shared.saveAuthToken(responseData.access_token)
                 }
             } else {
                 if let errorMessage = String(data: data, encoding: .utf8) {

@@ -14,7 +14,9 @@ struct UserScreen: View {
     @State private var isEditing = false
     @State private var editableUsername: String = ""
     @State private var editableEmail: String = ""
-    
+    @State private var isLoggedIn = false
+    @EnvironmentObject private var toastManager: ToastManager
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
@@ -29,7 +31,7 @@ struct UserScreen: View {
                     .frame(maxWidth: .infinity)
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(8)
-                    .textCase(.lowercase)
+                    .autocapitalization(.none)
                     .disabled(!isEditing)
                 
         
@@ -43,11 +45,43 @@ struct UserScreen: View {
                     .frame(maxWidth: .infinity)
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(8)
+                    .autocapitalization(.none)
+                    .disabled(!isEditing)
+                
+                
+                Text("Password")
+                    .font(.title2)
+                    .bold()
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                
+                SecureField("Password", text: /*$viewModel.user.email*/ $editableEmail)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
                     .textCase(.lowercase)
                     .disabled(!isEditing)
                 
                 Spacer()
+            
+                Button(action: {
+                    isLoggedIn = UserSessionManager.shared.isAuthenticated
+                    print(isLoggedIn)
+                    toastManager.toast = Toast(style: .info, message: "Logout", duration: 3)
+                }) {
+                    Text("Logout")
+                        .font(.headline)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                .navigationDestination(isPresented: $isLoggedIn) { AuthScreen().navigationBarBackButtonHidden(true) }
+                
             }
+            .toastView(toast: $toastManager.toast)
             .padding()
             .toolbar {
                 ToolbarItem {
@@ -63,7 +97,6 @@ struct UserScreen: View {
                 viewModel.fetchUser()
                 editableUsername = viewModel.user.username
                 editableEmail = viewModel.user.email
-                
             }
         }
     }

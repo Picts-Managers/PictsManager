@@ -11,32 +11,19 @@ import AuthenticationServices
 
 /// This screen is the entrypoint of the application
 struct AuthScreen: View {
+    @EnvironmentObject var toastManager: ToastManager
+    @State private var toast: Toast? = nil
+    
     var body: some View {
-        NavigationView {
-            VStack(spacing: 20) {
-                
+        NavigationStack {
+            VStack {
                 Spacer()
                 
                 Text("PictsManager")
                     .font(.title)
                     .bold()
                 
-                SignInWithAppleButton(.signIn) { request in
-                    request.requestedScopes =  [.fullName, .email]
-                } onCompletion: { result in
-                    switch result {
-                        case .success(let _authResults):
-//                            guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
-//                            let fullName = credential.fullName
-//                            let email = credential.email
-                            print("Authorisation successful")
-                        case .failure(let error):
-                            print("Authorisation failed: \(error.localizedDescription)")
-                    }
-                }
-                .frame(height: 50)
-                .signInWithAppleButtonStyle(.whiteOutline)
-                                
+                
                 NavigationLink(destination: LoginScreen()) {
                     Text("Login")
                         .font(.headline)
@@ -59,8 +46,12 @@ struct AuthScreen: View {
                         .cornerRadius(10)
                 }
             }
+            .onReceive(toastManager.objectWillChange) { _ in
+                self.toast = toastManager.toast
+            }
             .padding()
         }
+        .toastView(toast: $toast)
     }
 }
 
