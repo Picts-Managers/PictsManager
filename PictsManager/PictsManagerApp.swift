@@ -9,11 +9,13 @@ import SwiftUI
 
 @main
 struct PictsManagerApp: App {
+    @StateObject var toastManager = ToastManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(toastManager)
         }
     }
 }
-
 

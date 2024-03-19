@@ -25,6 +25,15 @@ extension ToastStyle {
         }
     }
     
+    var letterColor: Color {
+        switch self {
+            case .error: return Color.white
+            case .warning: return Color.white
+            case .info: return Color.white
+            case .success: return Color.white
+        }
+    }
+    
     var iconFileName: String {
         switch self {
             case .info: return "info.circle.fill"

@@ -15,7 +15,8 @@ struct UserScreen: View {
     @State private var editableUsername: String = ""
     @State private var editableEmail: String = ""
     @State private var isLoggedIn = false
-    
+    @EnvironmentObject private var toastManager: ToastManager
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
@@ -66,6 +67,7 @@ struct UserScreen: View {
                 Button(action: {
                     isLoggedIn = UserSessionManager.shared.isAuthenticated
                     print(isLoggedIn)
+                    toastManager.toast = Toast(style: .info, message: "Logout", duration: 3)
                 }) {
                     Text("Logout")
                         .font(.headline)
@@ -79,6 +81,7 @@ struct UserScreen: View {
                 .navigationDestination(isPresented: $isLoggedIn) { AuthScreen().navigationBarBackButtonHidden(true) }
                 
             }
+            .toastView(toast: $toastManager.toast)
             .padding()
             .toolbar {
                 ToolbarItem {

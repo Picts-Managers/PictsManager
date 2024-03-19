@@ -11,6 +11,9 @@ import AuthenticationServices
 
 /// This screen is the entrypoint of the application
 struct AuthScreen: View {
+    @EnvironmentObject var toastManager: ToastManager
+    @State private var toast: Toast? = nil
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -43,8 +46,12 @@ struct AuthScreen: View {
                         .cornerRadius(10)
                 }
             }
+            .onReceive(toastManager.objectWillChange) { _ in
+                self.toast = toastManager.toast
+            }
             .padding()
         }
+        .toastView(toast: $toast)
     }
 }
 

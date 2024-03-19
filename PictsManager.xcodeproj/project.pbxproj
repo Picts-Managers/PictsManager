@@ -25,6 +25,7 @@
 		22BB3B622BA8C5A800A94254 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB3B612BA8C5A800A94254 /* ToastModifier.swift */; };
 		22BB3B642BA8DCBB00A94254 /* ToastHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB3B632BA8DCBB00A94254 /* ToastHelper.swift */; };
 		22BB3B662BA8E17A00A94254 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB3B652BA8E17A00A94254 /* ToastView.swift */; };
+		22BB3B692BA996A000A94254 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB3B682BA996A000A94254 /* ToastManager.swift */; };
 		22D8B62E2B98ECED00734A99 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D8B62D2B98ECED00734A99 /* User.swift */; };
 		22D8B6322B98F06100734A99 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D8B6312B98F06100734A99 /* LoginScreen.swift */; };
 		22D8B6342B98F1C300734A99 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D8B6332B98F1C300734A99 /* AuthViewModel.swift */; };
@@ -56,6 +57,7 @@
 		22BB3B612BA8C5A800A94254 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
 		22BB3B632BA8DCBB00A94254 /* ToastHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastHelper.swift; sourceTree = "<group>"; };
 		22BB3B652BA8E17A00A94254 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToastView.swift; path = PictsManager/Screen/Common/Toast/ToastView.swift; sourceTree = SOURCE_ROOT; };
+		22BB3B682BA996A000A94254 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		22D8B62D2B98ECED00734A99 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22D8B6312B98F06100734A99 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		22D8B6332B98F1C300734A99 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				22BB3B5F2BA89CEE00A94254 /* ToastStyle.swift */,
 				22BB3B612BA8C5A800A94254 /* ToastModifier.swift */,
 				22BB3B632BA8DCBB00A94254 /* ToastHelper.swift */,
+				22BB3B682BA996A000A94254 /* ToastManager.swift */,
 			);
 			path = Toast;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				1A4A09EF2BA064630006D27F /* SearchView.swift in Sources */,
 				2209B00D2BA77B3100036F36 /* UserScreen.swift in Sources */,
 				1A4A09ED2BA063E50006D27F /* AlbumsView.swift in Sources */,
+				22BB3B692BA996A000A94254 /* ToastManager.swift in Sources */,
 				226B369C2B9EED44001BB288 /* Api.swift in Sources */,
 				22D8B6322B98F06100734A99 /* LoginScreen.swift in Sources */,
 				226B369E2B9EFE2B001BB288 /* RegisterScreen.swift in Sources */,

@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
-
+struct ContentView: View {    
+    @EnvironmentObject var toastManager: ToastManager
+    
     var body: some View {
-//        Navbar()
-        
          AuthScreen()
     }
 }

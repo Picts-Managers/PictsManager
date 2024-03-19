@@ -18,10 +18,10 @@ struct ToastView: View {
     var body: some View {
         HStack(alignment: .center, spacing: 20) {
             Image(systemName: style.iconFileName)
-                .foregroundColor(style.themeColor)
+                .foregroundColor(style.letterColor)
             Text(message)
                 .font(.caption)
-                .foregroundStyle(style.themeColor)
+                .foregroundStyle(style.letterColor)
             
             Spacer(minLength: 10)
             
@@ -29,11 +29,12 @@ struct ToastView: View {
                 onCancelTapped()
             } label: {
                 Image(systemName: "xmark")
-                    .foregroundColor(style.themeColor)
+                    .foregroundColor(style.letterColor)
             }
         }
         .padding()
-        .background(Color.gray.opacity(0.2))
+        .background(style.themeColor)
+//        .background(Color.gray.opacity(0.5))
         .cornerRadius(10)
         .frame(maxWidth: width)
         .overlay(
