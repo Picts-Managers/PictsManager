@@ -14,18 +14,18 @@ struct AlbumsView: View {
     NavigationStack {
       VStack {
         List {
-          AlbumRow(rowTitle: "Mes Albums", albums: [""])
-          AlbumRow(rowTitle: "Albums Partagés", albums: [""])
-          AlbumRow(rowTitle: "Personnes, animaux et lieux", albums: [""])
+          MyAlbumsRow(rowTitle: "Mes albums", albums: [Album(id: 12, name: "Vacances", pictureNames: ["turtlerock", "02"]), Album(id: 13, name: "Montagne", pictureNames: ["silversalmoncreek", "02"]), Album(id: 15, name: "Canada 2023", pictureNames: ["twinlake", "02", "03"])], afficherToutButton: true)
+          AlbumRow(rowTitle: "Albums partagés", albums: [Album(id: 14, name: "Friends", pictureNames: ["turtlerock", "02"])], afficherToutButton: true)
+          AlbumRow(rowTitle: "Personnes, animaux et lieux", albums: [Album(id: 16, name: "Friends", pictureNames: ["icybay", "02"])], afficherToutButton: false)
         }
         .listStyle(.inset)
       }
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {
-          Button {
-            addingAlbum.toggle()
-          } label: {
-            Label("New Album", systemImage: "plus")
+          Menu("AddAlbumMenu", systemImage: "plus") {
+            Button("Nouvel album", systemImage: "rectangle.stack.badge.plus") { addingAlbum.toggle() }
+            Button("Nouveau dossier", systemImage: "folder.badge.plus") { addingAlbum.toggle() }
+            Button("Nouvel album partagé", systemImage: "rectangle.stack.badge.person.crop") { addingAlbum.toggle() }
           }
         }
       }

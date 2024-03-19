@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AlbumRow: View {
+struct MyAlbumsRow: View {
   @State private var show = false
   var rowTitle: String
   var albums: [Album]
@@ -33,10 +33,23 @@ struct AlbumRow: View {
       .buttonStyle(PlainButtonStyle())
       
       ScrollView(.horizontal, showsIndicators: false) {
-        VStack {
+        VStack(alignment: .leading) {
           HStack(alignment: .top, spacing: 10) {
-            ForEach(albums) { album in
-              AlbumPreview(album: album)
+            AlbumPreview(album: Album(id: 17, name: "Récentes", pictureNames: [""]))
+            ForEach(Array(albums.enumerated()), id: \.element) { index, album in
+              if (index % 2 == 0) {
+                AlbumPreview(album: album)
+              }
+            }
+          }
+          .padding(.horizontal)
+          
+          HStack(alignment: .top, spacing: 10) {
+            FavoritesAlbumPreview(album: Album(id: 17, name: "Favorites", pictureNames: ["turtlerock"]))
+            ForEach(Array(albums.enumerated()), id: \.element) { index, album in
+              if (index % 2 != 0) {
+                AlbumPreview(album: album)
+              }
             }
           }
           .padding(.horizontal)
@@ -51,6 +64,6 @@ struct AlbumRow: View {
 #Preview {
   AlbumRow(rowTitle: "Mes Albums", albums: [
     Album(id: 01, name: "Vacances", pictureNames: ["turtlerock", "truc", "03"]),
-    Album(id: 02, name: "Soirée putes", pictureNames: ["turtlerock", "02"]),
+    Album(id: 02, name: "Soirée", pictureNames: ["turtlerock", "02"]),
   ], afficherToutButton: true)
 }
