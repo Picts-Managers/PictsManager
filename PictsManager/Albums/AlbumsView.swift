@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AlbumsView: View {
   @State private var addingAlbum = false
+  @State private var title = ""
   
   var body: some View {
     NavigationStack {
@@ -27,10 +28,32 @@ struct AlbumsView: View {
             Button("Nouveau dossier", systemImage: "folder.badge.plus") { addingAlbum.toggle() }
             Button("Nouvel album partagé", systemImage: "rectangle.stack.badge.person.crop") { addingAlbum.toggle() }
           }
+          .alert("Nouvel album", isPresented: $addingAlbum) {
+            TextField("Titre", text: $title)
+            Button {
+              title = ""
+              addingAlbum.toggle()
+            } label: {
+              Text("Annuler")
+            }
+            Button {
+              createAlbum(name: title)
+            } label: {
+              Text("Enregistrer")
+            }
+            .disabled(title.isEmpty)
+          } message: {
+            Text("Saisissez un nom pour cet album.")
+          }
         }
       }
       .navigationTitle("Albums")
     }
+    
+  }
+  
+  func createAlbum(name: String) {
+    print("\(name)")
   }
 }
 
