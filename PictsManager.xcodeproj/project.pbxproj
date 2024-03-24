@@ -14,6 +14,7 @@
 		1A4A09F82BA0CF630006D27F /* PhotosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A09F72BA0CF630006D27F /* PhotosList.swift */; };
 		1A4A09FA2BA0EDF30006D27F /* PeriodSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A09F92BA0EDF30006D27F /* PeriodSelector.swift */; };
 		2209B00D2BA77B3100036F36 /* UserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B00C2BA77B3100036F36 /* UserScreen.swift */; };
+		225F51752BAB57A400B60E7F /* ScreenLinearColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F51742BAB57A400B60E7F /* ScreenLinearColor.swift */; };
 		226B369C2B9EED44001BB288 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B369B2B9EED44001BB288 /* Api.swift */; };
 		226B369E2B9EFE2B001BB288 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B369D2B9EFE2B001BB288 /* RegisterScreen.swift */; };
 		22946C582BA3A0CA0052B612 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22946C572BA3A0CA0052B612 /* AuthScreen.swift */; };
@@ -46,6 +47,7 @@
 		1A4A09F72BA0CF630006D27F /* PhotosList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosList.swift; sourceTree = "<group>"; };
 		1A4A09F92BA0EDF30006D27F /* PeriodSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSelector.swift; sourceTree = "<group>"; };
 		2209B00C2BA77B3100036F36 /* UserScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScreen.swift; sourceTree = "<group>"; };
+		225F51742BAB57A400B60E7F /* ScreenLinearColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLinearColor.swift; sourceTree = "<group>"; };
 		226B369B2B9EED44001BB288 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		226B369D2B9EFE2B001BB288 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		22946C572BA3A0CA0052B612 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				22BB3B4C2BA79A4E00A94254 /* Navbar.swift */,
 				22BB3B572BA89C1000A94254 /* Toast */,
+				225F51742BAB57A400B60E7F /* ScreenLinearColor.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 			files = (
 				22BB3B602BA89CEE00A94254 /* ToastStyle.swift in Sources */,
 				22BB3B642BA8DCBB00A94254 /* ToastHelper.swift in Sources */,
+				225F51752BAB57A400B60E7F /* ScreenLinearColor.swift in Sources */,
 				22BB3B4D2BA79A4E00A94254 /* Navbar.swift in Sources */,
 				1A4A09EB2BA063D90006D27F /* PhotosView.swift in Sources */,
 				1A4A09F32BA0880F0006D27F /* ContentView.swift in Sources */,
@@ -533,6 +537,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -562,6 +567,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

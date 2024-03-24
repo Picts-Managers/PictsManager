@@ -14,11 +14,13 @@ struct RegisterScreen: View {
     @State private var email = ""
     @State private var password = ""
     @State private var isAccountCreated = false
-    @State private var toast: Toast? = nil
+    @EnvironmentObject private var toastManager: ToastManager
     
     var body: some View {
         NavigationStack{
             VStack(spacing: 20) {
+                ScreenLinearColor(gradientTopColor: Color.green)
+
                 VStack {
                     TextField("Email", text: $email)
                         .padding()
@@ -41,15 +43,16 @@ struct RegisterScreen: View {
                 .padding()
                 
                 Button(action: {
-                    viewModel.register(email: email, username: username, password: password)
-                    isAccountCreated = UserSessionManager.shared.isAuthenticated
-                    
-                    if (isAccountCreated == true) {
-                        toast = Toast(style: .success, message: "Registration sucessfully")
-                    } else {
-                        toast = Toast(style: .error, message: "Registration failed")
+                    Task {
+                        viewModel.register(email: email, username: username, password: password)
+                        isAccountCreated = UserSessionManager.shared.isAuthenticated
+                        
+                        if (isAccountCreated == true) {
+                            toastManager.toast = Toast(style: .success, message: "Registration sucessful")
+                        } else {
+                            toastManager.toast = Toast(style: .error, message: "Registration failed")
+                        }
                     }
-                    
                 }) {
                     Text("Register")
                         .font(.headline)
@@ -63,12 +66,20 @@ struct RegisterScreen: View {
                 
                 Spacer()
             }
-            .toastView(toast: $toast)
+            .toastView(toast: $toastManager.toast)
         }
         .navigationTitle("Register")
+        .onReceive(toastManager.objectWillChange) { _ in
+            DispatchQueue.main.async {
+                self.toastManager.toast = toastManager.toast
+            }
+        }
     }
 }
 
-#Preview() {
-    RegisterScreen()
+struct RegisterScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        let toastManager = ToastManager()
+        return RegisterScreen().environmentObject(toastManager)
+    }
 }

@@ -11,7 +11,7 @@ struct ContentView: View {
     @EnvironmentObject var toastManager: ToastManager
     
     var body: some View {
-         AuthScreen()
+        AuthScreen().environmentObject(toastManager)
     }
 }
 

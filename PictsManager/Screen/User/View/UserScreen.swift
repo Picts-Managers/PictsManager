@@ -19,6 +19,8 @@ struct UserScreen: View {
 
     var body: some View {
         NavigationStack {
+            ScreenLinearColor(gradientTopColor: Color.red)
+
             VStack(spacing: 20) {
                 
                 Text("Username")
@@ -67,7 +69,7 @@ struct UserScreen: View {
                 Button(action: {
                     isLoggedIn = UserSessionManager.shared.isAuthenticated
                     print(isLoggedIn)
-                    toastManager.toast = Toast(style: .info, message: "Logout", duration: 3)
+                    toastManager.toast = Toast(style: .info, message: "Logout")
                 }) {
                     Text("Logout")
                         .font(.headline)
@@ -105,6 +107,7 @@ struct UserScreen: View {
 struct UserScreen_Previews: PreviewProvider {
     static var previews: some View {
         let userViewModel = UserViewModel()
-        UserScreen(viewModel: userViewModel)
+        let toastManager = ToastManager()
+        UserScreen(viewModel: userViewModel).environmentObject(toastManager)
     }
 }

@@ -38,11 +38,8 @@ struct Navbar: View {
                         Text("Me")
                     }
             }
-            .onReceive(toastManager.objectWillChange) { _ in
-                self.toast = toastManager.toast
-            }
         }
-        .toastView(toast: $toast)
+        .toastView(toast: $toastManager.toast)
     }
 }
 

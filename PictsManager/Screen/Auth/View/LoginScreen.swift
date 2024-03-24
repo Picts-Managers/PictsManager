@@ -15,9 +15,10 @@ struct LoginScreen: View {
     @EnvironmentObject private var toastManager: ToastManager
     
     var body: some View {
-        
         NavigationStack {
             VStack {
+                ScreenLinearColor(gradientTopColor: Color.blue)
+                
                 HStack {
                     TextField("Username", text: $username)
                         .padding()
@@ -65,9 +66,17 @@ struct LoginScreen: View {
         }
         .navigationTitle(isLoggedIn ? "" : "Login")
         .navigationBarBackButtonHidden(isLoggedIn)
+        .onReceive(toastManager.objectWillChange) { _ in
+            DispatchQueue.main.async {
+                self.toastManager.toast = toastManager.toast
+            }
+        }
     }
 }
 
-#Preview {
-    LoginScreen()
+struct LoginScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        let toastManager = ToastManager()
+        return LoginScreen().environmentObject(toastManager)
+    }
 }

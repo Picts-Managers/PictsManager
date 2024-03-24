@@ -46,12 +46,9 @@ struct AuthScreen: View {
                         .cornerRadius(10)
                 }
             }
-            .onReceive(toastManager.objectWillChange) { _ in
-                self.toast = toastManager.toast
-            }
+            .toastView(toast: $toastManager.toast)
             .padding()
         }
-        .toastView(toast: $toast)
     }
 }
 
