@@ -39,14 +39,16 @@ struct LoginScreen: View {
                 
                 Button(action: {
                     Task {
-                        await viewModel.login(login: username, password: password)
-                        isLoggedIn = UserSessionManager.shared.isAuthenticated
-                        print(isLoggedIn)
-                        
-                        if isLoggedIn {
-                            toastManager.toast = Toast(style: .success, message: "Login successful")
-                        } else {
-                            toastManager.toast = Toast(style: .error, message: "Login failed")
+                        await viewModel.login(login: username, password: password) { success in
+                            isLoggedIn = success
+                            
+                            DispatchQueue.main.async {
+                                if isLoggedIn {
+                                    toastManager.toast = Toast(style: .success, message: "Login successful")
+                                } else {
+                                    toastManager.toast = Toast(style: .error, message: "Login failed")
+                                }
+                            }
                         }
                     }
                 }) {

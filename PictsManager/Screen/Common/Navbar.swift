@@ -33,7 +33,7 @@ struct Navbar: View {
                         Text("Rechercher")
                     }
                 
-                UserScreen(viewModel: UserViewModel())
+                UserScreen(userViewModel: UserViewModel(), authViewModel: AuthViewModel())
                     .tabItem {
                         Image(systemName: "person.crop.circle.fill")
                         Text("Me")

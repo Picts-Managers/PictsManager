@@ -12,9 +12,10 @@ class AuthViewModel: ObservableObject {
     @Published var errorMessage: String? = ""
     
     /// Simple login with form
-    func login(login: String, password: String) async {
+    func login(login: String, password: String, completion: @escaping (Bool) -> Void) async {
         guard let url = URL(string: Api.Auth.login) else {
             self.errorMessage = "Invalid URL for login endpoint"
+            completion(false)
             return
         }
         
@@ -27,6 +28,7 @@ class AuthViewModel: ObservableObject {
         
         guard let jsonData = try? JSONEncoder().encode(loginForm) else {
             self.errorMessage = "Failed to encode user data"
+            completion(false)
             return
         }
         
@@ -35,12 +37,14 @@ class AuthViewModel: ObservableObject {
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 self.errorMessage = error?.localizedDescription
+                completion(false)
                 return
             }
             
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 if let responseData = try? JSONDecoder().decode(LoginResponse.self, from: data) {
                     UserSessionManager.shared.saveAuthToken(responseData.access_token)
+                    completion(true)
                 }
             } else {
                 if let errorMessage = String(data: data, encoding: .utf8) {
@@ -48,6 +52,7 @@ class AuthViewModel: ObservableObject {
                 } else {
                     self.errorMessage = error?.localizedDescription
                 }
+                completion(false)
             }
         }.resume()
     }
@@ -110,4 +115,8 @@ class AuthViewModel: ObservableObject {
         }.resume()
     }
     
+    
+    func logout() {
+        UserSessionManager.shared.clearSession()
+    }
 }

@@ -10,11 +10,12 @@ import SwiftUI
 
 struct UserScreen: View {
     
-    @StateObject var viewModel: UserViewModel
+    @StateObject var userViewModel: UserViewModel
+    @StateObject var authViewModel: AuthViewModel
     @State private var isEditing = false
     @State private var editableUsername: String = ""
     @State private var editableEmail: String = ""
-    @State private var isLoggedIn = false
+    @State private var isLoggedOut = false
     @State private var isUserLoaded = false
     @EnvironmentObject private var toastManager: ToastManager
 
@@ -51,8 +52,8 @@ struct UserScreen: View {
                     .disabled(!isEditing)
                 
                 Button(action: {
-                    isLoggedIn = UserSessionManager.shared.isAuthenticated
-                    print(isLoggedIn)
+                    authViewModel.logout()
+                    isLoggedOut = !UserSessionManager.shared.isAuthenticated
                     toastManager.toast = Toast(style: .info, message: "Logout")
                 }) {
                     Text("Logout")
@@ -64,7 +65,8 @@ struct UserScreen: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-                .navigationDestination(isPresented: $isLoggedIn) { AuthScreen().navigationBarBackButtonHidden(true) }
+                .navigationDestination(isPresented: $isLoggedOut) { AuthScreen().navigationBarBackButtonHidden(true) }
+                
                 
             }
             .toastView(toast: $toastManager.toast)
@@ -78,7 +80,7 @@ struct UserScreen: View {
                     }
                 }
             }
-            .onReceive(viewModel.$user) { user in
+            .onReceive(userViewModel.$user) { user in
                 if let user = user {
                     editableUsername = user.username
                     editableEmail = user.email
@@ -86,7 +88,7 @@ struct UserScreen: View {
             }
             .onAppear {
                 Task {
-                    await viewModel.fetchUser()
+                    await userViewModel.fetchUser()
                 }
             }
             .navigationTitle(isUserLoaded ? "Hi2,  \(editableUsername)" : "Loading...")
@@ -99,6 +101,6 @@ struct UserScreen_Previews: PreviewProvider {
     static var previews: some View {
         let userViewModel = UserViewModel()
         let toastManager = ToastManager()
-        UserScreen(viewModel: userViewModel).environmentObject(toastManager)
+        UserScreen(userViewModel: userViewModel, authViewModel: AuthViewModel()).environmentObject(toastManager)
     }
 }
