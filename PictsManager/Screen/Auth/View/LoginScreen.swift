@@ -38,10 +38,14 @@ struct LoginScreen: View {
                 .padding([.leading, .trailing], 20)
                 
                 Button(action: {
+                    guard !username.isEmpty && !password.isEmpty else {
+                        toastManager.toast = Toast(style: .error, message: "Please fill out all fields")
+                        return
+                    }
+                    
                     Task {
                         await viewModel.login(login: username, password: password) { success in
                             isLoggedIn = success
-                            
                             DispatchQueue.main.async {
                                 if isLoggedIn {
                                     toastManager.toast = Toast(style: .success, message: "Login successful")
