@@ -9,20 +9,46 @@ import Foundation
 
 class UserViewModel: ObservableObject {
     
-    @Published var user: User = User(_id: "123", email: "mail@mail.com", username: "mynkie", token: "1234")
+    @Published var user: User?
+    @Published var userRepsonse: UserResponse?
     @Published var errorMessage: String? = ""
-
-    init() {}
     
-    func fetchUser() {
+    func fetchUser() async {
+        print(Api.Auth.me)
         guard let url = URL(string: Api.Auth.me) else {
-            self.errorMessage = "Invalid URL for user/me endpoint"
+            self.errorMessage = "Invalid URL for users/me endpoint"
+            return
+        }
+                
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        if let token = UserSessionManager.shared.getToken() {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        } else {
+            self.errorMessage = "User not authenticated"
             return
         }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue("Bearer \(user.token)", forHTTPHeaderField: "Authorization")
+//        do {
+//            let (data, _) = try await URLSession.shared.data(for: request)
+//
+//            if let decodedUser = try? JSONDecoder().decode(UserResponse.self, from: data) {
+//                DispatchQueue.main.async {
+//                    self.userRepsonse = decodedUser
+//                    self.user = User(_id: decodedUser._id, email: decodedUser.email, username: decodedUser.username, token: UserSessionManager.shared.getToken() ?? "")
+//                    print("userResponse: ", self.userRepsonse)
+//                    print("decodedUser: ", decodedUser)
+//                    print("user: ", self.user)
+//                }
+//            } else {
+//                self.errorMessage = "Failed to decode user data"
+//            }
+//        } catch {
+//            DispatchQueue.main.async {
+//                self.errorMessage = error.localizedDescription
+//            }
+//        }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
@@ -31,9 +57,10 @@ class UserViewModel: ObservableObject {
             }
             
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                if let decodedUser = try? JSONDecoder().decode(User.self, from: data) {
+                if let decodedUser = try? JSONDecoder().decode(UserResponse.self, from: data) {
                     DispatchQueue.main.async {
-                        self.user = decodedUser
+                        self.user = User(_id: decodedUser._id, email: decodedUser.email, username: decodedUser.username, token: UserSessionManager.shared.getToken() ?? "")
+                        print("user: ", self.user)
                     }
                 } else {
                     self.errorMessage = "Failed to decode user data"
@@ -44,5 +71,4 @@ class UserViewModel: ObservableObject {
         }.resume()
     }
 }
-
-
+        

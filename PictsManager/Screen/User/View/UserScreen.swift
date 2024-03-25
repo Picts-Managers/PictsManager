@@ -15,19 +15,17 @@ struct UserScreen: View {
     @State private var editableUsername: String = ""
     @State private var editableEmail: String = ""
     @State private var isLoggedIn = false
+    @State private var isUserLoaded = false
     @EnvironmentObject private var toastManager: ToastManager
 
     var body: some View {
-        NavigationStack {
-            ScreenLinearColor(gradientTopColor: Color.red)
-
-            VStack(spacing: 20) {
+        NavigationView {
+//            ScreenLinearColor(gradientTopColor: Color.red)
+            
+            VStack {
                 
-                Text("Username")
-                    .font(.title2)
-                    .bold()
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                
+                Spacer()
+        
                 TextField("Username", text: /*$viewModel.user.username*/ $editableUsername)
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -35,12 +33,6 @@ struct UserScreen: View {
                     .cornerRadius(8)
                     .autocapitalization(.none)
                     .disabled(!isEditing)
-                
-        
-                Text("Email")
-                    .font(.title2)
-                    .bold()
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                 
                 TextField("Email", text: /*$viewModel.user.email*/ $editableEmail)
                     .padding()
@@ -50,12 +42,6 @@ struct UserScreen: View {
                     .autocapitalization(.none)
                     .disabled(!isEditing)
                 
-                
-                Text("Password")
-                    .font(.title2)
-                    .bold()
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                
                 SecureField("Password", text: /*$viewModel.user.email*/ $editableEmail)
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -64,8 +50,6 @@ struct UserScreen: View {
                     .textCase(.lowercase)
                     .disabled(!isEditing)
                 
-                Spacer()
-            
                 Button(action: {
                     isLoggedIn = UserSessionManager.shared.isAuthenticated
                     print(isLoggedIn)
@@ -94,13 +78,20 @@ struct UserScreen: View {
                     }
                 }
             }
-            .navigationTitle("Hi, \(viewModel.user.username)")
-            .onAppear {
-                viewModel.fetchUser()
-                editableUsername = viewModel.user.username
-                editableEmail = viewModel.user.email
+            .onReceive(viewModel.$user) { user in
+                if let user = user {
+                    editableUsername = user.username
+                    editableEmail = user.email
+                }
             }
+            .onAppear {
+                Task {
+                    await viewModel.fetchUser()
+                }
+            }
+            .navigationTitle(isUserLoaded ? "Hi2,  \(editableUsername)" : "Loading...")
         }
+        .navigationTitle("Hi, \(editableUsername)")
     }
 }
 

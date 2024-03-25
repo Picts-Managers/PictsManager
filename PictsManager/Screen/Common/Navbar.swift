@@ -21,6 +21,7 @@ struct Navbar: View {
                         Image(systemName: "photo.fill.on.rectangle.fill")
                         Text("Photothèque")
                     }
+                
                 Albums()
                     .tabItem {
                         Image(systemName: "rectangle.stack.fill")
@@ -43,6 +44,9 @@ struct Navbar: View {
     }
 }
 
-#Preview {
-    Navbar()
+struct Navbar_Previews: PreviewProvider {
+    static var previews: some View {
+        let toastManager = ToastManager()
+        return Navbar().environmentObject(toastManager)
+    }
 }

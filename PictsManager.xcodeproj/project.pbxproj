@@ -30,6 +30,7 @@
 		22D8B62E2B98ECED00734A99 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D8B62D2B98ECED00734A99 /* User.swift */; };
 		22D8B6322B98F06100734A99 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D8B6312B98F06100734A99 /* LoginScreen.swift */; };
 		22D8B6342B98F1C300734A99 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D8B6332B98F1C300734A99 /* AuthViewModel.swift */; };
+		22DCFAAF2BB085740019A59F /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DCFAAE2BB085740019A59F /* UserResponse.swift */; };
 		2F15DE872B96075400D74795 /* PictsManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F15DE862B96075400D74795 /* PictsManagerApp.swift */; };
 		2F15DE8B2B96075500D74795 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F15DE8A2B96075500D74795 /* Assets.xcassets */; };
 		2F15DE8E2B96075500D74795 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F15DE8D2B96075500D74795 /* Preview Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		22D8B62D2B98ECED00734A99 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22D8B6312B98F06100734A99 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		22D8B6332B98F1C300734A99 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		22DCFAAE2BB085740019A59F /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		2F15DE832B96075400D74795 /* PictsManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictsManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F15DE862B96075400D74795 /* PictsManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictsManagerApp.swift; sourceTree = "<group>"; };
 		2F15DE8A2B96075500D74795 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		22946C5E2BA5B1510052B612 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				22DCFAAD2BB085620019A59F /* Response */,
 				22946C602BA5B15F0052B612 /* View */,
 				22946C5F2BA5B1590052B612 /* ViewModel */,
 			);
@@ -214,6 +217,14 @@
 				22D8B62C2B98ECD800734A99 /* View */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		22DCFAAD2BB085620019A59F /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				22DCFAAE2BB085740019A59F /* UserResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		2F15DE7A2B96075400D74795 = {
@@ -372,6 +383,7 @@
 				225F51752BAB57A400B60E7F /* ScreenLinearColor.swift in Sources */,
 				22BB3B4D2BA79A4E00A94254 /* Navbar.swift in Sources */,
 				1A4A09EB2BA063D90006D27F /* PhotosView.swift in Sources */,
+				22DCFAAF2BB085740019A59F /* UserResponse.swift in Sources */,
 				1A4A09F32BA0880F0006D27F /* ContentView.swift in Sources */,
 				1A4A09FA2BA0EDF30006D27F /* PeriodSelector.swift in Sources */,
 				1A4A09F82BA0CF630006D27F /* PhotosList.swift in Sources */,
