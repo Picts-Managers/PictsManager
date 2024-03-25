@@ -30,26 +30,6 @@ class UserViewModel: ObservableObject {
             return
         }
         
-//        do {
-//            let (data, _) = try await URLSession.shared.data(for: request)
-//
-//            if let decodedUser = try? JSONDecoder().decode(UserResponse.self, from: data) {
-//                DispatchQueue.main.async {
-//                    self.userRepsonse = decodedUser
-//                    self.user = User(_id: decodedUser._id, email: decodedUser.email, username: decodedUser.username, token: UserSessionManager.shared.getToken() ?? "")
-//                    print("userResponse: ", self.userRepsonse)
-//                    print("decodedUser: ", decodedUser)
-//                    print("user: ", self.user)
-//                }
-//            } else {
-//                self.errorMessage = "Failed to decode user data"
-//            }
-//        } catch {
-//            DispatchQueue.main.async {
-//                self.errorMessage = error.localizedDescription
-//            }
-//        }
-        
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 self.errorMessage = error?.localizedDescription ?? "Unknown error"
@@ -60,7 +40,6 @@ class UserViewModel: ObservableObject {
                 if let decodedUser = try? JSONDecoder().decode(UserResponse.self, from: data) {
                     DispatchQueue.main.async {
                         self.user = User(_id: decodedUser._id, email: decodedUser.email, username: decodedUser.username, token: UserSessionManager.shared.getToken() ?? "")
-                        print("user: ", self.user)
                     }
                 } else {
                     self.errorMessage = "Failed to decode user data"

@@ -89,11 +89,11 @@ struct UserScreen: View {
             .onAppear {
                 Task {
                     await userViewModel.fetchUser()
+                    isUserLoaded = true
                 }
             }
-            .navigationTitle(isUserLoaded ? "Hi2,  \(editableUsername)" : "Loading...")
+            .navigationTitle(isUserLoaded ? "Hi,  \(editableUsername)" : "Loading...")
         }
-        .navigationTitle("Hi, \(editableUsername)")
     }
 }
 
