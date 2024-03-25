@@ -53,8 +53,10 @@ struct MyAlbumsRow: View {
             }
           }
           .padding(.horizontal)
+          .scrollTargetLayout()
         }
       }
+      .scrollTargetBehavior(.viewAligned)
     }
     .padding(.bottom, 30)
     .listRowInsets(EdgeInsets())
