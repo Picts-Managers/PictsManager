@@ -9,7 +9,9 @@ import SwiftUI
 
 struct AlbumsView: View {
   @State private var addingAlbum = false
+  @State private var addingFolder = false;
   @State private var title = ""
+  @State private var folderName = ""
   
   var body: some View {
     NavigationStack {
@@ -25,8 +27,7 @@ struct AlbumsView: View {
         ToolbarItem(placement: .topBarLeading) {
           Menu("AddAlbumMenu", systemImage: "plus") {
             Button("Nouvel album", systemImage: "rectangle.stack.badge.plus") { addingAlbum.toggle() }
-            Button("Nouveau dossier", systemImage: "folder.badge.plus") { addingAlbum.toggle() }
-            Button("Nouvel album partagé", systemImage: "rectangle.stack.badge.person.crop") { addingAlbum.toggle() }
+            Button("Nouveau dossier", systemImage: "folder.badge.plus") { addingFolder.toggle() }
           }
           .alert("Nouvel album", isPresented: $addingAlbum) {
             TextField("Titre", text: $title)
@@ -45,6 +46,23 @@ struct AlbumsView: View {
           } message: {
             Text("Saisissez un nom pour cet album.")
           }
+          .alert("Nouveau dossier", isPresented: $addingFolder) {
+            TextField("Titre", text: $folderName)
+            Button {
+              folderName = ""
+              addingFolder.toggle()
+            } label: {
+              Text("Annuler")
+            }
+            Button {
+              createFolder(name: folderName)
+            } label: {
+              Text("Enregistrer")
+            }
+            .disabled(folderName.isEmpty)
+          } message: {
+            Text("Saisissez un nom pour ce dossier.")
+          }
         }
       }
       .navigationTitle("Albums")
@@ -55,6 +73,10 @@ struct AlbumsView: View {
   func createAlbum(name: String) {
     // Call API to create the album
     print("\(name)")
+  }
+  
+  func createFolder(name: String) {
+    print("Create folder \(name)")
   }
 }
 
