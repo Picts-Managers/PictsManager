@@ -32,7 +32,7 @@ struct AuthScreen: View {
                         .frame(height: 50)
                         .background(Color.blue)
                         .foregroundColor(.white)
-                        .cornerRadius(10)
+                        .cornerRadius(25)
                 }
                 
                 NavigationLink(destination: RegisterScreen()) {
@@ -43,7 +43,7 @@ struct AuthScreen: View {
                         .frame(height: 50)
                         .background(Color.green)
                         .foregroundColor(.white)
-                        .cornerRadius(10)
+                        .cornerRadius(25)
                 }
             }
             .toastView(toast: $toastManager.toast)
