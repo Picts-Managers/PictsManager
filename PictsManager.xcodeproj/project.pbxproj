@@ -24,7 +24,6 @@
 		2F9DD9122BA8797400567854 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD9112BA8797400567854 /* Album.swift */; };
 		2F9DD9142BA99CF400567854 /* MyAlbumsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD9132BA99CF400567854 /* MyAlbumsRow.swift */; };
 		2F9DD9162BA9A29600567854 /* FavoritesAlbumPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD9152BA9A29600567854 /* FavoritesAlbumPreview.swift */; };
-		2F9DD91A2BAC700000567854 /* NewAlbumPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD9192BAC700000567854 /* NewAlbumPopUp.swift */; };
 		34CAE0CC2BA0564C00381E39 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0CB2BA0564C00381E39 /* HomeScreen.swift */; };
 		34CAE0D32BA05D5800381E39 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0D22BA05D5800381E39 /* LoginForm.swift */; };
 		34CAE0D52BA05DA900381E39 /* RegisterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0D42BA05DA900381E39 /* RegisterForm.swift */; };
@@ -50,7 +49,6 @@
 		2F9DD9112BA8797400567854 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		2F9DD9132BA99CF400567854 /* MyAlbumsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsRow.swift; sourceTree = "<group>"; };
 		2F9DD9152BA9A29600567854 /* FavoritesAlbumPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAlbumPreview.swift; sourceTree = "<group>"; };
-		2F9DD9192BAC700000567854 /* NewAlbumPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAlbumPopUp.swift; sourceTree = "<group>"; };
 		34CAE0CB2BA0564C00381E39 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		34CAE0D22BA05D5800381E39 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
 		34CAE0D42BA05DA900381E39 /* RegisterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterForm.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				2F9DD9092BA768B700567854 /* AlbumsView.swift */,
-				2F9DD9192BAC700000567854 /* NewAlbumPopUp.swift */,
 				2F9DD90B2BA84DCD00567854 /* AlbumRow.swift */,
 				2F9DD90F2BA8795700567854 /* AlbumPreview.swift */,
 				2F9DD9112BA8797400567854 /* Album.swift */,
@@ -296,7 +293,6 @@
 				22D8B6342B98F1C300734A99 /* AuthViewModel.swift in Sources */,
 				34CAE0D72BA0622B00381E39 /* UserSessionManager.swift in Sources */,
 				34CAE0D32BA05D5800381E39 /* LoginForm.swift in Sources */,
-				2F9DD91A2BAC700000567854 /* NewAlbumPopUp.swift in Sources */,
 				34CAE0D52BA05DA900381E39 /* RegisterForm.swift in Sources */,
 				22D8B62E2B98ECED00734A99 /* User.swift in Sources */,
 			);
