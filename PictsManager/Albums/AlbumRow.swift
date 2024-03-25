@@ -40,8 +40,10 @@ struct AlbumRow: View {
             }
           }
           .padding(.horizontal)
+          .scrollTargetLayout()
         }
       }
+      .scrollTargetBehavior(.viewAligned)
     }
     .padding(.bottom, 30)
     .listRowInsets(EdgeInsets())
@@ -51,6 +53,6 @@ struct AlbumRow: View {
 #Preview {
   AlbumRow(rowTitle: "Mes Albums", albums: [
     Album(id: 01, name: "Vacances", pictureNames: ["turtlerock", "truc", "03"]),
-    Album(id: 02, name: "Soirée putes", pictureNames: ["turtlerock", "02"]),
+    Album(id: 02, name: "Famille", pictureNames: ["turtlerock", "02"]),
   ], afficherToutButton: true)
 }
