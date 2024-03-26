@@ -58,19 +58,19 @@ class AuthViewModel: ObservableObject {
     }
     
     /// Login with token
-    func loginWithToken(token: String) async throws {
-        guard let url = URL(string: Api.Auth.loginWithToken) else {
-            self.errorMessage = "Invalid URL for login endpoint"
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        let (data, _) = try await URLSession.shared.data(for: request)
-        let response = try? JSONDecoder().decode(LoginResponse.self, from: data)
-    }
+//    func loginWithToken(token: String) async throws {
+//        guard let url = URL(string: Api.Auth.loginWithToken) else {
+//            self.errorMessage = "Invalid URL for login endpoint"
+//            return
+//        }
+//        
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+//        
+//        let (data, _) = try await URLSession.shared.data(for: request)
+//        let response = try? JSONDecoder().decode(LoginResponse.self, from: data)
+//    }
     
     /// Registration with form
     func register(email: String, username: String, password: String) {

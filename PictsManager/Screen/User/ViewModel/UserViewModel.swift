@@ -19,7 +19,7 @@ class UserViewModel: ObservableObject {
             self.errorMessage = "Invalid URL for users/me endpoint"
             return
         }
-                
+         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
@@ -37,15 +37,19 @@ class UserViewModel: ObservableObject {
             }
             
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                if let decodedUser = try? JSONDecoder().decode(UserResponse.self, from: data) {
-                    DispatchQueue.main.async {
-                        self.user = User(_id: decodedUser._id, email: decodedUser.email, username: decodedUser.username, token: UserSessionManager.shared.getToken() ?? "")
+                    if let decodedUser = try? JSONDecoder().decode(UserResponse.self, from: data) {
+                        DispatchQueue.main.async {
+                            self.user = User(_id: decodedUser.id, email: decodedUser.email, username: decodedUser.username, token: UserSessionManager.shared.getToken() ?? "")      
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            self.errorMessage = "Failed to decode user data"
+                        }
                     }
-                } else {
-                    self.errorMessage = "Failed to decode user data"
-                }
             } else {
-                self.errorMessage = "Failed to fetch user data"
+                DispatchQueue.main.async {
+                    self.errorMessage = "Failed to fetch user data"
+                }
             }
         }.resume()
     }

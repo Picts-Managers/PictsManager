@@ -82,12 +82,15 @@ struct UserScreen: View {
             }
             .onReceive(userViewModel.$user) { user in
                 if let user = user {
+                    print(user.username)
+                    print(user.email)
                     editableUsername = user.username
                     editableEmail = user.email
                 }
             }
             .onAppear {
                 Task {
+                    print("here")
                     await userViewModel.fetchUser()
                     isUserLoaded = true
                 }
