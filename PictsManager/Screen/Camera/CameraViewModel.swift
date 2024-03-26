@@ -99,8 +99,7 @@ class CameraViewModel {
         }
         
         urlRequest.setValue("Bearer \(token!)", forHTTPHeaderField: "Authorization")
-        print("HEHEHEH")
-        print(token!)
+        
         var data = Data()
         data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
         data.append("Content-Disposition: form-data; name=\"\(paramName)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
