@@ -32,17 +32,47 @@ struct CustomCameraView: View {
                     print(err.localizedDescription)
                 }
             }
+
+
             
             VStack {
                 Spacer()
-                Button(action: {
-                    cameraViewModel.capturePhoto()
-                }, label: {
-                    Image(systemName: "circle")
-                        .font(.system(size: 72))
-                        .foregroundColor(.white)
-                })
-                .padding(.bottom)
+                HStack {
+                    Spacer()
+                    
+                    Button(action: {
+                        cameraViewModel.switchCamera()
+                    }, label: {
+                        Image(systemName: "circle.full")
+                                .font(.system(size: 15))
+                                .foregroundColor(.white)
+                                .padding()
+                    })
+                            .background(Color.black.opacity(1))
+                            .clipShape(Circle())
+                    
+                    Button(action: {
+                        cameraViewModel.capturePhoto()
+                    }, label: {
+                        Image(systemName: "circle")
+                                .font(.system(size: 72))
+                                .foregroundColor(.white)
+                    })
+                    
+                    
+                    Button(action: {
+                        cameraViewModel.switchCamera()
+                    }, label: {
+                        Image(systemName: "arrow.triangle.2.circlepath.camera")
+                                .font(.system(size: 15))
+                                .foregroundColor(.white)
+                                .padding()
+                    })
+                            .background(Color.black.opacity(0.7))
+                            .clipShape(Circle())
+                
+                    Spacer()
+                }
             }
         }
     }
