@@ -26,6 +26,11 @@ struct Navbar: View {
                     .tabItem {
                         Image(systemName: "rectangle.stack.fill")
                         Text("Albums")
+                    }                
+                CameraScreen()
+                    .tabItem {
+                        Image(systemName: "camera")
+                        Text("")
                     }
                 Search()
                     .tabItem {
