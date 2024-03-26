@@ -38,10 +38,10 @@
 		34CAE0D32BA05D5800381E39 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0D22BA05D5800381E39 /* LoginForm.swift */; };
 		34CAE0D52BA05DA900381E39 /* RegisterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0D42BA05DA900381E39 /* RegisterForm.swift */; };
 		34CAE0D72BA0622B00381E39 /* UserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0D62BA0622B00381E39 /* UserSessionManager.swift */; };
-		34CAE0F22BA9C0DC00381E39 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0ED2BA9C0DC00381E39 /* CameraService.swift */; };
-		34CAE0F42BA9C0DC00381E39 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0EF2BA9C0DC00381E39 /* CameraView.swift */; };
-		34CAE0F62BA9C0DC00381E39 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0F12BA9C0DC00381E39 /* CustomCameraView.swift */; };
 		34CAE0F82BA9C22B00381E39 /* CameraScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CAE0F72BA9C22B00381E39 /* CameraScreen.swift */; };
+		34DAE59A2BB2D3EF00C70075 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAE5992BB2D3EF00C70075 /* CustomCameraView.swift */; };
+		34DAE59C2BB2D3FF00C70075 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAE59B2BB2D3FF00C70075 /* CameraViewModel.swift */; };
+		34DAE59E2BB2D40900C70075 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAE59D2BB2D40900C70075 /* CameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,10 +77,10 @@
 		34CAE0D22BA05D5800381E39 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
 		34CAE0D42BA05DA900381E39 /* RegisterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterForm.swift; sourceTree = "<group>"; };
 		34CAE0D62BA0622B00381E39 /* UserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManager.swift; sourceTree = "<group>"; };
-		34CAE0ED2BA9C0DC00381E39 /* CameraService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraService.swift; path = ../../../../AVCamera/AVCamera/CameraService.swift; sourceTree = "<group>"; };
-		34CAE0EF2BA9C0DC00381E39 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraView.swift; path = ../../../../AVCamera/AVCamera/CameraView.swift; sourceTree = "<group>"; };
-		34CAE0F12BA9C0DC00381E39 /* CustomCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCameraView.swift; path = ../../../../AVCamera/AVCamera/CustomCameraView.swift; sourceTree = "<group>"; };
 		34CAE0F72BA9C22B00381E39 /* CameraScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreen.swift; sourceTree = "<group>"; };
+		34DAE5992BB2D3EF00C70075 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
+		34DAE59B2BB2D3FF00C70075 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		34DAE59D2BB2D40900C70075 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,10 +320,10 @@
 		34CAE0E62BA9A96B00381E39 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				34CAE0ED2BA9C0DC00381E39 /* CameraService.swift */,
-				34CAE0EF2BA9C0DC00381E39 /* CameraView.swift */,
-				34CAE0F12BA9C0DC00381E39 /* CustomCameraView.swift */,
 				34CAE0F72BA9C22B00381E39 /* CameraScreen.swift */,
+				34DAE5992BB2D3EF00C70075 /* CustomCameraView.swift */,
+				34DAE59B2BB2D3FF00C70075 /* CameraViewModel.swift */,
+				34DAE59D2BB2D40900C70075 /* CameraView.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -407,8 +407,6 @@
 				1A4A09F32BA0880F0006D27F /* ContentView.swift in Sources */,
 				1A4A09FA2BA0EDF30006D27F /* PeriodSelector.swift in Sources */,
 				1A4A09F82BA0CF630006D27F /* PhotosList.swift in Sources */,
-				34CAE0F62BA9C0DC00381E39 /* CustomCameraView.swift in Sources */,
-				34CAE0F42BA9C0DC00381E39 /* CameraView.swift in Sources */,
 				2F15DE872B96075400D74795 /* PictsManagerApp.swift in Sources */,
 				1A4A09EF2BA064630006D27F /* SearchView.swift in Sources */,
 				2209B00D2BA77B3100036F36 /* UserScreen.swift in Sources */,
@@ -416,19 +414,20 @@
 				22BB3B692BA996A000A94254 /* ToastManager.swift in Sources */,
 				226B369C2B9EED44001BB288 /* Api.swift in Sources */,
 				22D8B6322B98F06100734A99 /* LoginScreen.swift in Sources */,
+				34DAE59A2BB2D3EF00C70075 /* CustomCameraView.swift in Sources */,
 				226B369E2B9EFE2B001BB288 /* RegisterScreen.swift in Sources */,
 				22946C622BA5B16E0052B612 /* UserViewModel.swift in Sources */,
 				34CAE0CC2BA0564C00381E39 /* HomeScreen.swift in Sources */,
 				22BB3B662BA8E17A00A94254 /* ToastView.swift in Sources */,
 				22946C582BA3A0CA0052B612 /* AuthScreen.swift in Sources */,
-				34CAE0F22BA9C0DC00381E39 /* CameraService.swift in Sources */,
 				34CAE0F82BA9C22B00381E39 /* CameraScreen.swift in Sources */,
 				22BB3B5E2BA89C8A00A94254 /* Toast.swift in Sources */,
-				2F15DE872B96075400D74795 /* PictsManagerApp.swift in Sources */,
 				22D8B6342B98F1C300734A99 /* AuthViewModel.swift in Sources */,
 				34CAE0D72BA0622B00381E39 /* UserSessionManager.swift in Sources */,
 				34CAE0D32BA05D5800381E39 /* LoginForm.swift in Sources */,
 				34CAE0D52BA05DA900381E39 /* RegisterForm.swift in Sources */,
+				34DAE59E2BB2D40900C70075 /* CameraView.swift in Sources */,
+				34DAE59C2BB2D3FF00C70075 /* CameraViewModel.swift in Sources */,
 				22BB3B622BA8C5A800A94254 /* ToastModifier.swift in Sources */,
 				22BB3B532BA87D9F00A94254 /* LoginResponse.swift in Sources */,
 				22D8B62E2B98ECED00734A99 /* User.swift in Sources */,
@@ -574,7 +573,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -606,7 +604,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

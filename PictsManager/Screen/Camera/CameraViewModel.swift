@@ -1,0 +1,120 @@
+//
+//  CameraViewModel.swift
+//  PictsManager
+//
+//  Created by Stevens on 19/03/2024.
+//
+
+import SwiftUI
+import Foundation
+import AVFoundation
+
+class CameraViewModel {
+    
+    var session: AVCaptureSession?
+    var delegate: AVCapturePhotoCaptureDelegate?
+    
+    let output = AVCapturePhotoOutput()
+    let previewLayer = AVCaptureVideoPreviewLayer()
+    
+    func start(delegate: AVCapturePhotoCaptureDelegate, completion: @escaping (Error?) -> ()) {
+        self.delegate = delegate
+        checkPermissions(completion: completion)
+    }
+    
+    private func checkPermissions(completion: @escaping (Error?) -> ()) {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
+                guard granted else { return }
+                DispatchQueue.main.async {
+                    self?.setupCamera(completion: completion)
+                }
+            }
+        case .restricted:
+            break
+        case .denied:
+            break
+        case .authorized:
+            setupCamera(completion: completion)
+        @unknown default:
+            break
+        }
+    }
+    
+    private func setupCamera(completion: @escaping (Error?) -> ()) {
+        let session = AVCaptureSession()
+        if let device = AVCaptureDevice.default(for: .video) {
+            do {
+                let input = try AVCaptureDeviceInput(device: device)
+                if session.canAddInput(input) {
+                    session.addInput(input)
+                }
+
+                if session.canAddOutput(output) {
+                    session.addOutput(output)
+                }
+
+                previewLayer.videoGravity = .resizeAspectFill
+                previewLayer.session = session
+
+                DispatchQueue.global().async {
+                    session.startRunning()
+                    DispatchQueue.main.async {
+                        self.session = session
+                    }
+                }
+            } catch {
+                completion(error)
+            }
+        }
+    }
+    
+    func capturePhoto(with settings: AVCapturePhotoSettings = AVCapturePhotoSettings()) {
+          output.capturePhoto(with: settings, delegate: self.delegate!)
+      }
+    
+    
+    func uploadImage(paramName: String, fileName: String, image: UIImage) {
+        guard let url = URL(string: Api.Picture.uploadPicture) else {
+            print("Invalid URL")
+            return
+        }
+
+        guard let imageData = image.pngData() else {
+            print("Image could not be converted to PNG data")
+            return
+        }
+
+        let boundary = UUID().uuidString
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        
+        let token = UserSessionManager.shared.getToken()
+        if token == nil {
+            print("token null")
+            return
+        }
+        
+        urlRequest.setValue("Bearer \(token!)", forHTTPHeaderField: "Authorization")
+        print("HEHEHEH")
+        print(token!)
+        var data = Data()
+        data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+        data.append("Content-Disposition: form-data; name=\"\(paramName)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
+        data.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
+        data.append(imageData)
+        data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+
+        URLSession.shared.uploadTask(with: urlRequest, from: data) { responseData, response, error in
+                    if let error = error {
+                        print("Failed to upload image: \(error)")
+                    } else if let jsonData = responseData, let json = try? JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [String: Any] {
+                        print(json)
+                    }
+                }.resume()
+    }
+    
+}
