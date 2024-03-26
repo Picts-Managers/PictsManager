@@ -41,7 +41,7 @@ struct PhotosList: View {
                 ImageDetail(image: selectedImage!)
             }
 
-        }.defaultScrollAnchor(.bottom)
+        }
     }
 }
 
