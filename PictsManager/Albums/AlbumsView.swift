@@ -27,7 +27,7 @@ struct AlbumsView: View {
         ToolbarItem(placement: .topBarLeading) {
           Menu("AddAlbumMenu", systemImage: "plus") {
             Button("Nouvel album", systemImage: "rectangle.stack.badge.plus") { addingAlbum.toggle() }
-            Button("Nouveau dossier", systemImage: "folder.badge.plus") { addingFolder.toggle() }
+//            Button("Nouveau dossier", systemImage: "folder.badge.plus") { addingFolder.toggle() }
           }
           .alert("Nouvel album", isPresented: $addingAlbum) {
             TextField("Titre", text: $title)
@@ -67,7 +67,6 @@ struct AlbumsView: View {
       }
       .navigationTitle("Albums")
     }
-    
   }
   
   func createAlbum(name: String) {

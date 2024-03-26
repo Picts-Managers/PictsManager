@@ -20,12 +20,13 @@ struct MyAlbumsRow: View {
           .frame(alignment: .leading)
         Spacer()
         if (afficherToutButton) {
-          Button {
-            
+          NavigationLink {
+            AlbumsListView(title: "My albums", albums: [Album(id: 30, name: "Vacances", pictureNames: ["turtlerock"])])
           } label: {
             Text("Tout afficher")
               .foregroundStyle(Color.blue)
           }
+          .buttonStyle(.bordered)
         }
       }
       .padding(.horizontal)
@@ -33,22 +34,42 @@ struct MyAlbumsRow: View {
       .buttonStyle(PlainButtonStyle())
       
       ScrollView(.horizontal, showsIndicators: false) {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 20) {
           HStack(alignment: .top, spacing: 10) {
-            AlbumPreview(album: Album(id: 17, name: "Récentes", pictureNames: [""]))
+            NavigationLink {
+              AlbumsView()
+            } label: {
+              AlbumPreview(album: Album(id: 17, name: "Récentes", pictureNames: [""]))
+            }
+            .buttonStyle(PlainButtonStyle())
             ForEach(Array(albums.enumerated()), id: \.element) { index, album in
               if (index % 2 == 0) {
-                AlbumPreview(album: album)
+                NavigationLink {
+                  AlbumsView()
+                } label: {
+                  AlbumPreview(album: album)
+                }
+                .buttonStyle(PlainButtonStyle())
               }
             }
           }
           .padding(.horizontal)
           
           HStack(alignment: .top, spacing: 10) {
-            FavoritesAlbumPreview(album: Album(id: 17, name: "Favorites", pictureNames: ["turtlerock"]))
+            NavigationLink {
+              AlbumsView()
+            } label: {
+              FavoritesAlbumPreview(album: Album(id: 17, name: "Favorites", pictureNames: ["turtlerock"]))
+            }
+            .buttonStyle(PlainButtonStyle())
             ForEach(Array(albums.enumerated()), id: \.element) { index, album in
               if (index % 2 != 0) {
-                AlbumPreview(album: album)
+                NavigationLink {
+                  AlbumsView()
+                } label: {
+                  AlbumPreview(album: album)
+                }
+                .buttonStyle(PlainButtonStyle())
               }
             }
           }

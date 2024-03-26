@@ -15,7 +15,7 @@ struct AlbumPreview: View {
       album.pictures[0]
         .renderingMode(.original)
         .resizable()
-        .frame(width: 155, height: 155)
+        .frame(width: 170, height: 170)
         .cornerRadius(3)
       Text(album.name)
         .padding(.bottom, -8)

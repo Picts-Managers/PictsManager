@@ -21,7 +21,7 @@ struct AlbumRow: View {
         Spacer()
         if (afficherToutButton) {
           Button {
-            
+//            AlbumsView()
           } label: {
             Text("Tout afficher")
               .foregroundStyle(Color.blue)
@@ -36,7 +36,12 @@ struct AlbumRow: View {
         VStack {
           HStack(alignment: .top, spacing: 10) {
             ForEach(albums) { album in
-              AlbumPreview(album: album)
+              NavigationLink {
+                AlbumsView()
+              } label: {
+                AlbumPreview(album: album)
+              }
+              .buttonStyle(PlainButtonStyle())
             }
           }
           .padding(.horizontal)
