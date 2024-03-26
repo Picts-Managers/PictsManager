@@ -58,8 +58,8 @@ struct CustomCameraView: View {
                         Image(systemName: "circle")
                                 .font(.system(size: 72))
                                 .foregroundColor(.white)
+                                .padding(.bottom)
                     })
-                    
                     
                     Button(action: {
                         cameraViewModel.switchCamera()
