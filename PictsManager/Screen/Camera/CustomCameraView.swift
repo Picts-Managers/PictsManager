@@ -41,11 +41,12 @@ struct CustomCameraView: View {
                     Spacer()
                     
                     Button(action: {
-                        cameraViewModel.switchCamera()
+                        //TODO check gallery
                     }, label: {
-                        Image(systemName: "circle.full")
+                        Image(systemName: "circle.fill")
+                                .frame(width: 25.0)
                                 .font(.system(size: 15))
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .padding()
                     })
                             .background(Color.black.opacity(1))
@@ -64,6 +65,7 @@ struct CustomCameraView: View {
                         cameraViewModel.switchCamera()
                     }, label: {
                         Image(systemName: "arrow.triangle.2.circlepath.camera")
+                                .frame(width: 25.0)
                                 .font(.system(size: 15))
                                 .foregroundColor(.white)
                                 .padding()
