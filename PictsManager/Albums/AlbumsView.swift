@@ -14,7 +14,7 @@ struct AlbumsView: View {
   @State private var folderName = ""
   
   var body: some View {
-    NavigationStack {
+    NavigationSplitView {
       VStack {
         List {
           MyAlbumsRow(rowTitle: "Mes albums", albums: [Album(id: 12, name: "Vacances", pictureNames: ["turtlerock", "02"]), Album(id: 13, name: "Montagne", pictureNames: ["silversalmoncreek", "02"]), Album(id: 15, name: "Canada 2023", pictureNames: ["twinlake", "02", "03"]), Album(id: 20, name: "Canada 2023", pictureNames: ["twinlake", "02", "03"]), Album(id: 21, name: "Canada 2023", pictureNames: ["twinlake", "02", "03"]), Album(id: 22, name: "Canada 2023", pictureNames: ["twinlake", "02", "03"]), Album(id: 23, name: "Canada 2023", pictureNames: ["twinlake", "02", "03"]), Album(id: 24, name: "Canada 2023", pictureNames: ["twinlake", "02", "03"]), Album(id: 25, name: "Canada 2023", pictureNames: ["twinlake", "02", "03"]), Album(id: 26, name: "Canada 2023", pictureNames: ["twinlake", "02", "03"])], afficherToutButton: true)
@@ -66,6 +66,8 @@ struct AlbumsView: View {
         }
       }
       .navigationTitle("Albums")
+    } detail: {
+      Text("Album list")
     }
   }
   

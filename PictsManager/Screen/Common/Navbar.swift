@@ -22,7 +22,7 @@ struct Navbar: View {
                         Text("Photothèque")
                     }
                 
-                Albums()
+                AlbumsView()
                     .tabItem {
                         Image(systemName: "rectangle.stack.fill")
                         Text("Albums")

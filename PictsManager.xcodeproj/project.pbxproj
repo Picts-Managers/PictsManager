@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1A4A09EB2BA063D90006D27F /* PhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A09EA2BA063D90006D27F /* PhotosView.swift */; };
-		1A4A09ED2BA063E50006D27F /* AlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A09EC2BA063E50006D27F /* AlbumsView.swift */; };
 		1A4A09EF2BA064630006D27F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A09EE2BA064630006D27F /* SearchView.swift */; };
 		1A4A09F32BA0880F0006D27F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A09F22BA0880F0006D27F /* ContentView.swift */; };
 		1A4A09F82BA0CF630006D27F /* PhotosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A09F72BA0CF630006D27F /* PhotosList.swift */; };
@@ -53,7 +52,6 @@
 
 /* Begin PBXFileReference section */
 		1A4A09EA2BA063D90006D27F /* PhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosView.swift; sourceTree = "<group>"; };
-		1A4A09EC2BA063E50006D27F /* AlbumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsView.swift; sourceTree = "<group>"; };
 		1A4A09EE2BA064630006D27F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		1A4A09F22BA0880F0006D27F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1A4A09F72BA0CF630006D27F /* PhotosList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosList.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				1A4A09EA2BA063D90006D27F /* PhotosView.swift */,
-				1A4A09EC2BA063E50006D27F /* AlbumsView.swift */,
 				1A4A09EE2BA064630006D27F /* SearchView.swift */,
 			);
 			path = View;
@@ -439,10 +436,8 @@
 				2F15DE872B96075400D74795 /* PictsManagerApp.swift in Sources */,
 				1A4A09EF2BA064630006D27F /* SearchView.swift in Sources */,
 				2209B00D2BA77B3100036F36 /* UserScreen.swift in Sources */,
-				1A4A09ED2BA063E50006D27F /* AlbumsView.swift in Sources */,
 				22BB3B692BA996A000A94254 /* ToastManager.swift in Sources */,
 				2F9DD9102BA8795700567854 /* AlbumPreview.swift in Sources */,
-				2F15DE892B96075400D74795 /* ContentView.swift in Sources */,
 				2F9DD9142BA99CF400567854 /* MyAlbumsRow.swift in Sources */,
 				226B369C2B9EED44001BB288 /* Api.swift in Sources */,
 				2F9DD9122BA8797400567854 /* Album.swift in Sources */,
@@ -453,7 +448,6 @@
 				226B369E2B9EFE2B001BB288 /* RegisterScreen.swift in Sources */,
 				22946C622BA5B16E0052B612 /* UserViewModel.swift in Sources */,
 				2F9DD90A2BA768B700567854 /* AlbumsView.swift in Sources */,
-				22946C5C2BA5A98A0052B612 /* UserScreen.swift in Sources */,
 				34CAE0CC2BA0564C00381E39 /* HomeScreen.swift in Sources */,
 				22BB3B662BA8E17A00A94254 /* ToastView.swift in Sources */,
 				22946C582BA3A0CA0052B612 /* AuthScreen.swift in Sources */,
@@ -604,8 +598,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PictsManager/Preview Content\"";
-				DEVELOPMENT_TEAM = 5G42DC2QV8;
-				DEVELOPMENT_TEAM = QT32FULF4Q;
 				DEVELOPMENT_TEAM = 4Z3LZF2A32;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -615,7 +607,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -639,8 +631,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PictsManager/Preview Content\"";
-				DEVELOPMENT_TEAM = 5G42DC2QV8;
-				DEVELOPMENT_TEAM = QT32FULF4Q;
 				DEVELOPMENT_TEAM = 4Z3LZF2A32;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -650,7 +640,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
