@@ -12,7 +12,6 @@ struct AlbumRow: View {
   var rowTitle: String
   var albums: [Album]
   var afficherToutButton: Bool
-
   var body: some View {
     VStack(alignment: .leading) {
       HStack {

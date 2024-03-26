@@ -454,6 +454,20 @@
 				34CAE0F82BA9C22B00381E39 /* CameraScreen.swift in Sources */,
 				22BB3B5E2BA89C8A00A94254 /* Toast.swift in Sources */,
 				2F15DE872B96075400D74795 /* PictsManagerApp.swift in Sources */,
+				2F9DD9102BA8795700567854 /* AlbumPreview.swift in Sources */,
+				2F15DE892B96075400D74795 /* ContentView.swift in Sources */,
+				2F9DD9142BA99CF400567854 /* MyAlbumsRow.swift in Sources */,
+				226B369C2B9EED44001BB288 /* Api.swift in Sources */,
+				2F9DD9122BA8797400567854 /* Album.swift in Sources */,
+				2F9DD90C2BA84DCD00567854 /* AlbumRow.swift in Sources */,
+				2F9DD91C2BB1B4B600567854 /* AlbumsListView.swift in Sources */,
+				22D8B6322B98F06100734A99 /* LoginScreen.swift in Sources */,
+				226B369E2B9EFE2B001BB288 /* RegisterScreen.swift in Sources */,
+				2F9DD90A2BA768B700567854 /* AlbumsView.swift in Sources */,
+				22946C5C2BA5A98A0052B612 /* UserScreen.swift in Sources */,
+				34CAE0CC2BA0564C00381E39 /* HomeScreen.swift in Sources */,
+				22946C582BA3A0CA0052B612 /* AuthScreen.swift in Sources */,
+				2F15DE872B96075400D74795 /* PictsManagerApp.swift in Sources */,
 				2F9DD9162BA9A29600567854 /* FavoritesAlbumPreview.swift in Sources */,
 				22D8B6342B98F1C300734A99 /* AuthViewModel.swift in Sources */,
 				34CAE0D72BA0622B00381E39 /* UserSessionManager.swift in Sources */,
@@ -599,6 +613,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PictsManager/Preview Content\"";
 				DEVELOPMENT_TEAM = 4Z3LZF2A32;
+				DEVELOPMENT_TEAM = QT32FULF4Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is used for capturing photos.";
@@ -632,6 +647,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PictsManager/Preview Content\"";
 				DEVELOPMENT_TEAM = 4Z3LZF2A32;
+				DEVELOPMENT_TEAM = QT32FULF4Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is used for capturing photos.";

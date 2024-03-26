@@ -66,8 +66,10 @@ struct AlbumsView: View {
         }
       }
       .navigationTitle("Albums")
+<<<<<<< HEAD
     } detail: {
       Text("Album list")
+>>>>>>> 7ae587e3e3713483e8deb01603aa50caa1afc7c0
     }
   }
   
